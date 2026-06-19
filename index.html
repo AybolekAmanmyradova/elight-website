@@ -254,7 +254,7 @@
     #mission { background: var(--navy); }
 
     .mv-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px;
+      display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 48px; max-width: 640px;
     }
 
     .mv-card {
@@ -663,11 +663,6 @@
         <div class="mv-tag" data-i18n="mission_tag">Mission</div>
         <p data-i18n="mission_text">To equip youth across Central Asia with the English skills, academic confidence, and career readiness they need to compete and lead in a global world. We do this through modern, technology-powered education that meets students where they are.</p>
       </div>
-      <div class="mv-card">
-        <div class="mv-tag" data-i18n="vision_tag">Vision</div>
-        <p data-i18n="vision_text">To become Turkmenistan's most trusted and results-driven online English school, where every young person who comes to us, online or in person, leaves better prepared for the future they deserve.</p>
-      </div>
-    </div>
   </div>
 </section>
 
@@ -684,8 +679,14 @@
         <div class="course-badge" data-i18n="popular_badge">Popular</div>
         <div class="course-title" data-i18n="c1_title">Small Group</div>
         <div class="course-subtitle" data-i18n="c1_sub">English · 10 Weeks</div>
-        <div class="course-price">$187.50</div>
-        <div class="course-price-note" data-i18n="c1_price_note">or 2 installments of $93.75</div>
+        <div class="course-price">
+          $75<span style="font-size:0.85rem;font-weight:400;color:var(--text-muted)"> / 4 weeks</span>
+          &nbsp;&nbsp;
+          <span style="font-size:1.1rem;color:var(--blue-light);">$175 / 10 weeks</span>
+        </div>
+        <div class="course-price-note" data-i18n="c1_price_note">
+          Was <span style="text-decoration:line-through;color:var(--text-muted);">$187.50</span> &mdash; save $12.50 on full course
+        </div>
         <ul class="course-features">
           <li data-i18n="cf_small_group_speaking">Small group speaking lessons 2×/week with instructor</li>
           <li data-i18n="cf_self_paced">3–4 self-paced platform lessons per week (Speaking, Writing, Reading, Listening)</li>
@@ -704,8 +705,14 @@
       <div class="course-card">
         <div class="course-title" data-i18n="c2_title">2 Person Group Lessons</div>
         <div class="course-subtitle" data-i18n="c2_sub">English · 10 Weeks</div>
-        <div class="course-price">$249.99</div>
-        <div class="course-price-note" data-i18n="c2_price_note">or 2 installments of $124.99</div>
+        <div class="course-price">
+          $99<span style="font-size:0.85rem;font-weight:400;color:var(--text-muted)"> / 4 weeks</span>
+          &nbsp;&nbsp;
+          <span style="font-size:1.1rem;color:var(--blue-light);">$237.50 / 10 weeks</span>
+        </div>
+        <div class="course-price-note" data-i18n="c2_price_note">
+          Was <span style="text-decoration:line-through;color:var(--text-muted);">$249.99</span> &mdash; save $12.49 on full course
+        </div>
         <ul class="course-features">
           <li data-i18n="cf_paired_speaking">Paired speaking lessons 2×/week with instructor</li>
           <li data-i18n="cf_self_paced">3–4 self-paced platform lessons per week (Speaking, Writing, Reading, Listening)</li>
@@ -724,8 +731,8 @@
       <div class="course-card">
         <div class="course-title" data-i18n="c3_title">Individual</div>
         <div class="course-subtitle" data-i18n="c3_sub">English · Fully Personalized</div>
-        <div class="course-price">$179.99<span style="font-size:1rem;font-weight:400;color:var(--text-muted)">/mo</span></div>
-        <div class="course-price-note" data-i18n="c3_price_note">Prorated start · due 1st of each month</div>
+        <div class="course-price">$159.99<span style="font-size:0.85rem;font-weight:400;color:var(--text-muted)"> / 4 weeks</span></div>
+        <div class="course-price-note" data-i18n="c3_price_note">12 weeks for $449.99 <span style="text-decoration:line-through;color:var(--text-muted);">$479.97</span> — save $29.98</div>
         <ul class="course-features">
           <li data-i18n="cf_live">3 live 1-on-1 lessons per week with instructor</li>
           <li data-i18n="cf_flexible_start">Flexible start date, begin any day</li>
@@ -762,22 +769,22 @@
         </div>
         <div class="lang-card">
           <div class="lang-name" data-i18n="subj_japanese">Japanese</div>
-          <div class="lang-price">$179.99<span style="font-size:0.75rem;color:var(--text-muted)">/mo</span></div>
+          <div class="lang-price">$159.99<span style="font-size:0.75rem;color:var(--text-muted)"> / 4 wks</span></div>
           <div class="lang-note" data-i18n="individual_format">Individual format</div>
         </div>
         <div class="lang-card">
           <div class="lang-name" data-i18n="subj_korean">Korean</div>
-          <div class="lang-price">$179.99<span style="font-size:0.75rem;color:var(--text-muted)">/mo</span></div>
+          <div class="lang-price">$159.99<span style="font-size:0.75rem;color:var(--text-muted)"> / 4 wks</span></div>
           <div class="lang-note" data-i18n="individual_format">Individual format</div>
         </div>
         <div class="lang-card">
           <div class="lang-name" data-i18n="subj_french">French</div>
-          <div class="lang-price">$179.99<span style="font-size:0.75rem;color:var(--text-muted)">/mo</span></div>
+          <div class="lang-price">$159.99<span style="font-size:0.75rem;color:var(--text-muted)"> / 4 wks</span></div>
           <div class="lang-note" data-i18n="individual_format">Individual format</div>
         </div>
         <div class="lang-card">
           <div class="lang-name" data-i18n="subj_german">German</div>
-          <div class="lang-price">$179.99<span style="font-size:0.75rem;color:var(--text-muted)">/mo</span></div>
+          <div class="lang-price">$159.99<span style="font-size:0.75rem;color:var(--text-muted)"> / 4 wks</span></div>
           <div class="lang-note" data-i18n="individual_format">Individual format</div>
         </div>
       </div>
@@ -948,7 +955,7 @@
       <h4 data-i18n="footer_nav_title">Navigate</h4>
       <ul>
         <li><a href="#about" data-i18n="nav_about">About Us</a></li>
-        <li><a href="#mission" data-i18n="nav_mission">Mission &amp; Vision</a></li>
+        <li><a href="#mission" data-i18n="nav_mission">Mission</a></li>
         <li><a href="#courses" data-i18n="nav_courses">Courses &amp; Pricing</a></li>
         <li><a href="#enroll" data-i18n="nav_enroll">Enroll</a></li>
     <li><a href="#faq">FAQ</a></li>
@@ -994,13 +1001,12 @@ const translations = {
     about_p2: "Elight School was founded by a woman from Central Asia who believes quality education should be within reach for everyone, no matter where they live.",
     stat1: "Languages & Subjects", stat2: "Online & Flexible", stat3: "Week Programs", stat4: "Community Access",
     mv_label: "Our Purpose", mv_title: "What drives us.",
-    mission_tag: "Mission", vision_tag: "Vision",
+    mission_tag: "Mission",
     mission_text: "To equip youth across Central Asia with the English skills, academic confidence, and career readiness they need to compete and lead in a global world. We do this through modern, technology-powered education that meets students where they are.",
-    vision_text: "To become Turkmenistan's most trusted and results-driven online English school, where every young person who comes to us, online or in person, leaves better prepared for the future they deserve.",
     courses_label: "Our Programs", courses_title: "Find your course.",
-    c1_title: "Small Group", c1_sub: "English · 10 Weeks", c1_price_note: "or 2 installments of $93.75",
-    c2_title: "2 Person Group Lessons", c2_sub: "English · 10 Weeks", c2_price_note: "or 2 installments of $124.99",
-    c3_title: "Individual", c3_sub: "English · Fully Personalized", c3_price_note: "Prorated start · due 1st of each month",
+    c1_title: "Small Group", c1_sub: "English · 10 Weeks", c1_price_note: "Was $187.50 — save $12.50 on full course",
+    c2_title: "2 Person Group Lessons", c2_sub: "English · 10 Weeks", c2_price_note: "Was $249.99 — save $12.49 on full course",
+    c3_title: "Individual", c3_sub: "English · Fully Personalized", c3_price_note: "12 weeks for $449.99 (was $479.97) — save $29.98",
     popular_badge: "Popular",
     cf_small_group_speaking: "Small group speaking lessons 2×/week with instructor",
     cf_paired_speaking: "Paired speaking lessons 2×/week with instructor",
@@ -1048,13 +1054,12 @@ const translations = {
     about_p2: "Школа Elight основана женщиной из Центральной Азии, которая убеждена: качественное образование должно быть доступно каждому, независимо от места проживания.",
     stat1: "Языков и предметов", stat2: "Онлайн и гибко", stat3: "Недельные программы", stat4: "Доступ к сообществу",
     mv_label: "Наша цель", mv_title: "Что нас движет.",
-    mission_tag: "Миссия", vision_tag: "Видение",
+    mission_tag: "Миссия",
     mission_text: "Вооружить молодёжь Центральной Азии знанием английского языка, академической уверенностью и готовностью к карьере с помощью современного технологичного образования, доступного в любом месте.",
-    vision_text: "Стать самой надёжной и результативной онлайн-школой английского языка в Туркменистане, где каждый молодой человек, занимаясь онлайн или очно, уходит лучше подготовленным к своему будущему.",
     courses_label: "Наши программы", courses_title: "Выберите свой курс.",
-    c1_title: "Мини-группа", c1_sub: "Английский · 10 недель", c1_price_note: "или 2 платежа по $93.75",
-    c2_title: "Групповые уроки (2 человека)", c2_sub: "Английский · 10 недель", c2_price_note: "или 2 платежа по $124.99",
-    c3_title: "Индивидуально", c3_sub: "Английский · Полностью персональный", c3_price_note: "Оплата пропорционально · 1-го числа каждого месяца",
+    c1_title: "Мини-группа", c1_sub: "Английский · 10 недель", c1_price_note: "Было $187.50 — экономия $12.50 при оплате за 10 недель",
+    c2_title: "Групповые уроки (2 человека)", c2_sub: "Английский · 10 недель", c2_price_note: "Было $249.99 — экономия $12.49 при оплате за 10 недель",
+    c3_title: "Индивидуально", c3_sub: "Английский · Полностью персональный", c3_price_note: "12 недель за $449.99 (вместо $479.97) — экономия $29.98",
     popular_badge: "Популярно",
     cf_small_group_speaking: "Разговорные уроки в мини-группе 2 раза/нед. с преподавателем",
     cf_paired_speaking: "Парные разговорные уроки 2 раза/нед. с преподавателем",
@@ -1102,13 +1107,12 @@ const translations = {
     about_p2: "Elight mekdebi Merkezi Aziýadan bir aýal tarapyndan esaslandyryldy. Ol hiliň biliminiň ýaşaýan ýerine garamazdan hemmelere elýeterli bolmalydygyna ynanýar.",
     stat1: "Dil we dersleri", stat2: "Onlaýn we çeýe", stat3: "Hepdelik maksatnamalar", stat4: "Jemgyýete giriş",
     mv_label: "Maksadymyz", mv_title: "Bizi näme herekete getirýär.",
-    mission_tag: "Missiýa", vision_tag: "Görnüş",
+    mission_tag: "Missiýa",
     mission_text: "Merkezi Aziýanyň ýaşlaryny dünýä derejesinde bäsleşmäge we ýolbaşçylyk etmäge mümkinçilik berýän iňlis dili başarnyklary, akademiki ynamdarlyk we karýera taýýarlygy bilen enjamlandyrmak. Muny häzirki zaman, tehnologiýa esasly bilim arkaly amala aşyrýarys.",
-    vision_text: "Türkmenistanyň iň ynamdar we netijeli onlaýn iňlis dili mekdebine öwrülmek, bu ýerde her ýaş adam, sanly ýa-da başga görnüşde okaýan bolsun, öz mynasyp geljegine has gowy taýýarlanyp aýrylsyn.",
     courses_label: "Maksatnamalarymyz", courses_title: "Kursuňyzy saýlaň.",
-    c1_title: "Kiçi topar", c1_sub: "Iňlis dili · 10 Hepde", c1_price_note: "ýa-da 2 $93.75 töleg",
-    c2_title: "2 Adamlyk Topar Sapagy", c2_sub: "Iňlis dili · 10 Hepde", c2_price_note: "ýa-da 2 $124.99 töleg",
-    c3_title: "Şahsy sapaklary", c3_sub: "Iňlis dili · Doly şahsylaşdyrylan", c3_price_note: "Proporsional başlangyç · her aýyň 1-inde",
+    c1_title: "Kiçi topar", c1_sub: "Iňlis dili · 10 Hepde", c1_price_note: "$187.50 bolupdy — 10 hepdede $12.50 tygşytla",
+    c2_title: "2 Adamlyk Topar Sapagy", c2_sub: "Iňlis dili · 10 Hepde", c2_price_note: "$249.99 bolupdy — 10 hepdede $12.49 tygşytla",
+    c3_title: "Şahsy sapaklary", c3_sub: "Iňlis dili · Doly şahsylaşdyrylan", c3_price_note: "12 hepde üçin $449.99 ($479.97 deregine) — $29.98 tygşytla",
     popular_badge: "Meşhur",
     cf_small_group_speaking: "Kiçi toparda hepdede 2 gezek mugallym bilen gepleşik sapaklar",
     cf_paired_speaking: "Jübüt gepleşik sapaklar hepdede 2 gezek mugallym bilen",
@@ -1156,13 +1160,12 @@ const translations = {
     about_p2: "Elight Okulu, Orta Asya'dan bir kadın tarafından kurulmuştur. Kaliteli eğitimin nerede yaşandığından bağımsız olarak herkese ulaşması gerektiğine inanıyor.",
     stat1: "Dil ve Konu", stat2: "Çevrimiçi ve Esnek", stat3: "Haftalık Programlar", stat4: "Topluluk Erişimi",
     mv_label: "Amacımız", mv_title: "Bizi harekete geçiren nedir.",
-    mission_tag: "Misyon", vision_tag: "Vizyon",
+    mission_tag: "Misyon",
     mission_text: "Orta Asya genelindeki gençleri, küresel dünyada rekabet edip liderlik edebilmeleri için gereken İngilizce becerileri, akademik özgüven ve kariyer hazırlığıyla donatmak. Bunu modern, teknoloji destekli eğitim aracılığıyla gerçekleştiriyoruz.",
-    vision_text: "Türkmenistan'ın en güvenilir ve sonuç odaklı çevrimiçi İngilizce okulu olmak. Kapımıza gelen her genç, çevrimiçi ya da yüz yüze, hak ettiği geleceğe daha hazırlıklı ayrılsın.",
     courses_label: "Programlarımız", courses_title: "Kursunuzu bulun.",
-    c1_title: "Küçük Grup", c1_sub: "İngilizce · 10 Hafta", c1_price_note: "veya 2 taksit $93.75",
-    c2_title: "2 Kişilik Grup Dersleri", c2_sub: "İngilizce · 10 Hafta", c2_price_note: "veya 2 taksit $124.99",
-    c3_title: "Bireysel", c3_sub: "İngilizce · Tamamen Kişiselleştirilmiş", c3_price_note: "Orantılı başlangıç · her ayın 1'inde ödeme",
+    c1_title: "Küçük Grup", c1_sub: "İngilizce · 10 Hafta", c1_price_note: "Eski fiyat $187.50 — 10 haftalık pakette $12.50 kazanın",
+    c2_title: "2 Kişilik Grup Dersleri", c2_sub: "İngilizce · 10 Hafta", c2_price_note: "Eski fiyat $249.99 — 10 haftalık pakette $12.49 kazanın",
+    c3_title: "Bireysel", c3_sub: "İngilizce · Tamamen Kişiselleştirilmiş", c3_price_note: "12 hafta için $449.99 ($479.97 yerine) — $29.98 tasarruf",
     popular_badge: "Popüler",
     cf_small_group_speaking: "Küçük grupta haftada 2 kez eğitmenle konuşma dersleri",
     cf_paired_speaking: "Çiftli konuşma dersleri haftada 2 kez eğitmenle",
