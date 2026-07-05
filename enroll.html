@@ -487,6 +487,7 @@ function toggleTheme(){
 function setLang(l){
   lang = l;
   ["en","ru","tk","tr"].forEach(x=>document.getElementById("btn-"+x).classList.toggle("active", x===l));
+  document.getElementById("f-uilang").value = l;
   applyStrings();
 }
 function updateStepLabel(){
