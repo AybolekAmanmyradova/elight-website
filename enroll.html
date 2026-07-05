@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<script>(function(){try{var t=localStorage.getItem("elight-theme");if(t!=="dark")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enroll | Elight Online School</title>
+<meta name="description" content="Sign up for Elight courses in English, Math, Russian, Turkmen, Turkish, German, French, and test prep. English students get a free 10-minute level test.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0D1B2A;
+    --navy-mid:#162032;
+    --blue:#4A90C4;
+    --blue-light:#A8D4F0;
+    --gold:#E8C45A;
+    --white:#FFFFFF;
+    --text-muted:#8A9BB0;
+    --border:rgba(74,144,196,0.15);
+    --error:#FF8A7A;
+    --radius:14px;
+
+    /* Theme tokens — dark is the default */
+    --gold-text:var(--gold);
+    --heading:#FFFFFF;
+    --body-text:#A8D4F0;
+    --page-bg:#0D1B2A;
+    --alt-bg:#162032;
+    --panel-bg:rgba(22,32,50,0.9);
+    --input-bg:rgba(13,27,42,0.6);
+    --track:rgba(255,255,255,0.08);
+  }
+
+  /* Light theme — activated by data-theme="light" on <html> */
+  [data-theme="light"]{
+    --gold-text:#8C6700;
+    --heading:#0D1B2A;
+    --body-text:#33475B;
+    --text-muted:#5B6B7E;
+    --border:rgba(13,27,42,0.12);
+    --page-bg:#F5F8FB;
+    --alt-bg:#FFFFFF;
+    --panel-bg:#FFFFFF;
+    --input-bg:#FFFFFF;
+    --track:rgba(13,27,42,0.08);
+  }
+  [data-theme="light"] .card{box-shadow:0 4px 18px rgba(13,27,42,0.06)}
+
+  .theme-toggle{border:1px solid var(--border);background:var(--alt-bg);color:var(--heading);width:36px;height:36px;border-radius:99px;cursor:pointer;font-size:1rem;line-height:1;display:flex;align-items:center;justify-content:center;padding:0;transition:border-color .15s}
+  .theme-toggle:hover{border-color:var(--gold-text)}
+  .theme-toggle .icon-dark{display:none}
+  .theme-toggle .icon-light{display:inline}
+  [data-theme="light"] .theme-toggle .icon-dark{display:inline}
+  [data-theme="light"] .theme-toggle .icon-light{display:none}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    font-family:'DM Sans',sans-serif;
+    background:var(--page-bg);
+    color:var(--heading);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:640px;margin:0 auto;padding:24px 18px 64px}
+  header{display:flex;justify-content:space-between;align-items:center;padding:6px 0 22px;gap:10px;flex-wrap:wrap}
+  .brand{font-size:1.2rem;font-weight:600;letter-spacing:.01em;text-decoration:none;color:var(--heading)}
+  .brand span{color:var(--gold-text)}
+  .lang-toggle{display:flex;border:1px solid var(--border);border-radius:99px;overflow:hidden;background:var(--alt-bg)}
+  .lang-toggle button{border:0;background:transparent;padding:6px 11px;font:inherit;font-size:.82rem;font-weight:600;color:var(--body-text);cursor:pointer;white-space:nowrap}
+  .lang-toggle button.active{background:var(--gold);color:var(--navy)}
+
+  .progress{margin-bottom:26px}
+  .progress-labels{display:flex;justify-content:space-between;font-size:.78rem;font-weight:600;color:var(--body-text);margin-bottom:8px}
+  .bar{height:8px;background:var(--track);border-radius:99px;overflow:hidden}
+  .bar-fill{height:100%;width:0%;background:linear-gradient(90deg,var(--gold),#F5DA8E);border-radius:99px;transition:width .45s ease;box-shadow:0 0 10px rgba(232,196,90,.55)}
+
+  h1{font-family:'Playfair Display',serif;font-size:1.7rem;line-height:1.2;letter-spacing:-.01em;margin-bottom:10px;color:var(--heading)}
+  .lede{color:var(--body-text);font-size:.95rem;font-weight:300;margin-bottom:24px}
+
+  .card{background:var(--panel-bg);border:1px solid var(--border);border-radius:var(--radius);padding:22px 20px;margin-bottom:16px}
+  label{display:block;font-weight:500;font-size:.9rem;margin-bottom:6px;color:var(--heading)}
+  .hint{font-weight:300;color:var(--text-muted);font-size:.82rem}
+  input[type=text],input[type=email],input[type=tel],select,textarea{
+    width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;
+    font:inherit;font-size:1rem;background:var(--input-bg);color:var(--heading);
+  }
+  select option{background:var(--alt-bg);color:var(--heading)}
+  textarea{min-height:90px;resize:vertical}
+  input::placeholder,textarea::placeholder{color:var(--text-muted)}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--gold);outline-offset:1px;border-color:var(--gold-text)}
+  .field{margin-bottom:18px}
+  .field:last-child{margin-bottom:4px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:480px){.row2{grid-template-columns:1fr}}
+
+  .checks{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  @media(max-width:480px){.checks{grid-template-columns:1fr}}
+  .check{display:flex;align-items:center;gap:10px;border:1px solid var(--border);border-radius:10px;padding:11px 12px;cursor:pointer;background:var(--input-bg);font-size:.9rem;color:var(--body-text);transition:border-color .15s}
+  .check:has(input:checked){border-color:var(--gold-text);background:rgba(232,196,90,0.12);color:var(--heading)}
+  .check input{accent-color:var(--gold-text);width:17px;height:17px}
+
+  .radio-pills{display:flex;flex-wrap:wrap;gap:10px}
+  .pill{border:1px solid var(--border);border-radius:99px;padding:9px 16px;cursor:pointer;background:var(--input-bg);font-size:.9rem;color:var(--body-text);display:flex;align-items:center;gap:8px}
+  .pill:has(input:checked){border-color:var(--gold-text);background:rgba(232,196,90,0.12);font-weight:600;color:var(--heading)}
+  .pill input{accent-color:var(--gold-text)}
+
+  .btn{display:inline-block;width:100%;border:0;border-radius:10px;background:var(--gold);color:var(--navy);font:inherit;font-weight:700;font-size:1.02rem;padding:15px 20px;cursor:pointer;transition:opacity .15s,transform .15s;box-shadow:0 2px 12px rgba(232,196,90,0.35);letter-spacing:.01em}
+  .btn:hover{opacity:.92;transform:translateY(-1px)}
+  .btn.gold{background:var(--gold)}
+  .btn-row{display:flex;gap:12px;margin-top:6px}
+  .btn.ghost{background:transparent;color:var(--body-text);border:1px solid var(--border);width:auto;padding:15px 22px;box-shadow:none;font-weight:500}
+  .btn:disabled{opacity:.6;cursor:wait;transform:none}
+
+  .err{color:var(--error);font-size:.85rem;margin:10px 0;display:none}
+  .err.show{display:block}
+
+  .q{margin-bottom:22px}
+  .q-num{font-size:.72rem;font-weight:600;color:var(--gold-text);text-transform:uppercase;letter-spacing:.15em;margin-bottom:4px}
+  .q-text{font-weight:500;font-size:1.02rem;margin-bottom:10px;color:var(--heading)}
+  .opts{display:grid;gap:8px}
+  .opt{display:flex;align-items:center;gap:10px;border:1px solid var(--border);border-radius:10px;padding:11px 13px;cursor:pointer;background:var(--input-bg);font-size:.95rem;color:var(--body-text);transition:border-color .15s,background .15s}
+  .opt:has(input:checked){border-color:var(--gold-text);background:rgba(232,196,90,0.12);font-weight:600;color:var(--heading)}
+  .opt input{accent-color:var(--gold-text)}
+
+  .result{text-align:center;padding:44px 24px}
+  .bulb{width:86px;height:86px;margin:0 auto 18px;border-radius:50%;background:radial-gradient(circle at 50% 40%, #F5DA8E, var(--gold));display:flex;align-items:center;justify-content:center;font-size:2.2rem;box-shadow:0 0 40px rgba(232,196,90,.5)}
+  .level-badge{font-family:'Playfair Display',serif;font-size:2.4rem;font-weight:700;color:var(--gold-text);margin:6px 0 4px}
+  .hidden{display:none!important}
+  footer{margin-top:34px;text-align:center;font-size:.8rem;color:var(--text-muted)}
+  a{color:var(--gold-text)}
+  @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="https://elight.us.com">e<span>light</span></a>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button type="button" id="btn-en" class="active" onclick="setLang('en')">🇺🇸 EN</button>
+      <button type="button" id="btn-ru" onclick="setLang('ru')">🇷🇺 RU</button>
+      <button type="button" id="btn-tk" onclick="setLang('tk')">🇹🇲 TK</button>
+      <button type="button" id="btn-tr" onclick="setLang('tr')">🇹🇷 TR</button>
+    </div>
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle light and dark theme" title="Toggle theme"><span class="icon-light">&#9728;&#65039;</span><span class="icon-dark">&#127769;</span></button>
+  </header>
+
+  <div class="progress">
+    <div class="progress-labels">
+      <span id="step-label">Your details</span>
+      <span id="pct">0%</span>
+    </div>
+    <div class="bar"><div class="bar-fill" id="bar"></div></div>
+  </div>
+
+  <!-- ============ STEP 1: INTAKE ============ -->
+  <section id="step-intake">
+    <h1 data-i18n="title">Sign up for your course</h1>
+    <p class="lede" data-i18n="lede">Tell us about yourself and choose your course. We'll message you within 24 hours. English and TOEFL students take a short level test at the end, no dictionary needed.</p>
+
+    <form id="enroll-form" name="elight-enrollment" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate>
+      <input type="hidden" name="form-name" value="elight-enrollment">
+      <p class="hidden"><label>Don't fill this out: <input name="bot-field"></label></p>
+      <input type="hidden" name="timezone" id="tz-field">
+      <input type="hidden" name="test_score" id="f-score">
+      <input type="hidden" name="test_level" id="f-level">
+      <input type="hidden" name="test_breakdown" id="f-breakdown">
+      <input type="hidden" name="test_answers" id="f-answers">
+      <input type="hidden" name="ui_language" id="f-uilang" value="en">
+
+      <div class="card">
+        <div class="field">
+          <label for="course" data-i18n="l_course">Which course are you signing up for?</label>
+          <select id="course" name="course" required>
+            <option value="" data-i18n="c_pick">Choose a course...</option>
+            <option value="English" data-i18n="c_en">English</option>
+            <option value="Math" data-i18n="c_math">Math</option>
+            <option value="Russian" data-i18n="c_ru">Russian</option>
+            <option value="Turkmen" data-i18n="c_tk">Turkmen</option>
+            <option value="Turkish" data-i18n="c_tr">Turkish</option>
+            <option value="German" data-i18n="c_de">German</option>
+            <option value="French" data-i18n="c_fr">French</option>
+            <option value="Korean" data-i18n="c_ko">Korean</option>
+            <option value="Japanese" data-i18n="c_ja">Japanese</option>
+            <option value="TOEFL prep" data-i18n="c_toefl">Test prep: TOEFL</option>
+            <option value="SAT/GRE Math prep" data-i18n="c_sat">Test prep: SAT / GRE Math</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="field">
+          <label for="name" data-i18n="l_name">Full name</label>
+          <input type="text" id="name" name="full_name" autocomplete="name" required>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="email" data-i18n="l_email">Email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="age" data-i18n="l_age">Age group</label>
+            <select id="age" name="age_group" required>
+              <option value="" data-i18n="g_pick">Choose...</option>
+              <option value="Under 10" data-i18n="g1">Under 10</option>
+              <option value="10-13">10–13</option>
+              <option value="14-17">14–17</option>
+              <option value="18-24">18–24</option>
+              <option value="25+" data-i18n="g5">25 and older</option>
+            </select>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="contact-method" data-i18n="l_cmethod">Best way to reach you</label>
+            <select id="contact-method" name="contact_method" required>
+              <option value="" data-i18n="g_pick">Choose...</option>
+              <option value="WhatsApp">WhatsApp</option>
+              <option value="Telegram">Telegram</option>
+              <option value="Instagram">Instagram</option>
+              <option value="TikTok">TikTok</option>
+              <option value="Email" data-i18n="m_email">Email</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="handle" data-i18n="l_handle">Your number or username there</label>
+            <input type="text" id="handle" name="contact_handle" placeholder="+993 ... / @username" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="city" data-i18n="l_city">City &amp; country</label>
+          <input type="text" id="city" name="city_country" placeholder="Ashgabat, Turkmenistan" required>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="field">
+          <label for="goal" data-i18n="l_goal">What is your main goal?</label>
+          <select id="goal" name="learning_goal" required>
+            <option value="" data-i18n="g_pick">Choose...</option>
+            <option value="School support" data-i18n="go1">Help with school subjects</option>
+            <option value="Exam preparation" data-i18n="go2">Exam preparation</option>
+            <option value="Study abroad" data-i18n="go3">University / study abroad</option>
+            <option value="Career" data-i18n="go4">Career and work</option>
+            <option value="Travel" data-i18n="go5">Travel</option>
+            <option value="General fluency" data-i18n="go6">General fluency</option>
+            <option value="Other" data-i18n="go7">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label data-i18n="l_tlang">Which language should your teacher explain in?</label>
+          <div class="radio-pills">
+            <label class="pill"><input type="radio" name="teaching_language" value="Turkmen" required><span data-i18n="tl_tk">Turkmen</span></label>
+            <label class="pill"><input type="radio" name="teaching_language" value="Russian"><span data-i18n="tl_ru">Russian</span></label>
+            <label class="pill"><input type="radio" name="teaching_language" value="English"><span data-i18n="tl_en">English</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label data-i18n="l_format">Which format do you prefer?</label>
+          <div class="radio-pills">
+            <label class="pill"><input type="radio" name="format" value="Group" required><span data-i18n="o_group">Group course</span></label>
+            <label class="pill"><input type="radio" name="format" value="Individual"><span data-i18n="o_indiv">Individual lessons</span></label>
+            <label class="pill"><input type="radio" name="format" value="Not sure"><span data-i18n="o_unsure">Not sure yet</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="field">
+          <label data-i18n="l_avail">When can you study? <span class="hint" data-i18n="h_avail">(your local time, choose all that work)</span></label>
+          <div class="checks">
+            <label class="check"><input type="checkbox" name="availability" value="Weekday mornings"><span data-i18n="a1">Weekday mornings</span></label>
+            <label class="check"><input type="checkbox" name="availability" value="Weekday afternoons"><span data-i18n="a2">Weekday afternoons</span></label>
+            <label class="check"><input type="checkbox" name="availability" value="Weekday evenings"><span data-i18n="a3">Weekday evenings</span></label>
+            <label class="check"><input type="checkbox" name="availability" value="Weekend mornings"><span data-i18n="a4">Weekend mornings</span></label>
+            <label class="check"><input type="checkbox" name="availability" value="Weekend afternoons"><span data-i18n="a5">Weekend afternoons</span></label>
+            <label class="check"><input type="checkbox" name="availability" value="Weekend evenings"><span data-i18n="a6">Weekend evenings</span></label>
+          </div>
+        </div>
+        <div class="field">
+          <label for="source" data-i18n="l_source">How did you hear about us?</label>
+          <select id="source" name="heard_from">
+            <option value="Instagram">Instagram</option>
+            <option value="TikTok">TikTok</option>
+            <option value="Telegram">Telegram</option>
+            <option value="WhatsApp">WhatsApp</option>
+            <option value="Friend or family" data-i18n="s_friend">Friend or family</option>
+            <option value="Other" data-i18n="s_other">Other</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="comments" data-i18n="l_comments">Anything else you'd like to share? <span class="hint" data-i18n="h_opt">(optional)</span></label>
+          <textarea id="comments" name="comments"></textarea>
+        </div>
+      </div>
+
+      <p class="err" id="intake-err" data-i18n="e_intake">Please complete all required fields.</p>
+      <button type="button" class="btn gold" id="main-btn" onclick="handleMain()" data-i18n="b_send">Send application ✓</button>
+    </form>
+  </section>
+
+  <!-- ============ STEP 2: ENGLISH TEST ============ -->
+  <section id="step-test" class="hidden">
+    <h1 data-i18n="t_title">English level test</h1>
+    <p class="lede" data-i18n="t_lede">25 questions, about 10 minutes. Choose the best answer. If you're not sure, it's okay to guess or skip.</p>
+    <div class="card" id="q-container"></div>
+    <p class="err" id="test-err" data-i18n="e_send">Something went wrong sending your form. Please check your connection and try again.</p>
+    <div class="btn-row">
+      <button type="button" class="btn ghost" id="back-btn" onclick="prevPage()" data-i18n="b_back">← Back</button>
+      <button type="button" class="btn" id="next-btn" onclick="nextPage()" data-i18n="b_next">Next →</button>
+    </div>
+  </section>
+
+  <!-- ============ RESULT: ENGLISH ============ -->
+  <section id="step-done-test" class="hidden">
+    <div class="card result">
+      <div class="bulb">💡</div>
+      <h1 data-i18n="r_title">You're all set!</h1>
+      <p class="lede" style="margin-bottom:6px" data-i18n="r_est">Your estimated level:</p>
+      <div class="level-badge" id="level-out">—</div>
+      <p class="lede" id="score-out"></p>
+      <p class="lede" data-i18n="r_next">Our team will review your results and message you within 24 hours with your course placement and schedule options.</p>
+      <p style="font-size:.9rem;color:var(--text-muted)"><span data-i18n="r_q">Questions right now? Message us on</span> <a href="https://wa.me/message/NZQYXBHHW3YXI1">WhatsApp</a> · <a href="https://t.me/+19258340107">Telegram</a></p>
+    </div>
+  </section>
+
+  <!-- ============ RESULT: OTHER COURSES ============ -->
+  <section id="step-done-plain" class="hidden">
+    <div class="card result">
+      <div class="bulb">💡</div>
+      <h1 data-i18n="d_title">Application received!</h1>
+      <p class="lede" data-i18n="d_next">We'll message you within 24 hours to confirm your course, schedule, and payment options.</p>
+      <p style="font-size:.9rem;color:var(--text-muted)"><span data-i18n="r_q">Questions right now? Message us on</span> <a href="https://wa.me/message/NZQYXBHHW3YXI1">WhatsApp</a> · <a href="https://t.me/+19258340107">Telegram</a></p>
+    </div>
+  </section>
+
+  <footer>© 2026 Elight Online School · <a href="https://elight.us.com">elight.us.com</a></footer>
+</div>
+
+<script>
+/* ================= i18n ================= */
+const STR = {
+en:{
+  title:"Sign up for your course",
+  lede:"Tell us about yourself and choose your course. We'll message you within 24 hours. English and TOEFL students take a short level test at the end, no dictionary needed.",
+  step_details:"Your details", step_test:"English level test",
+  l_course:"Which course are you signing up for?", c_pick:"Choose a course...",
+  c_en:"English", c_math:"Math", c_ru:"Russian", c_tk:"Turkmen", c_tr:"Turkish", c_de:"German", c_fr:"French",
+  c_ko:"Korean", c_ja:"Japanese", c_toefl:"Test prep: TOEFL", c_sat:"Test prep: SAT / GRE Math",
+  l_name:"Full name", l_email:"Email", l_age:"Age group", g_pick:"Choose...", g1:"Under 10", g5:"25 and older",
+  l_cmethod:"Best way to reach you", m_email:"Email",
+  l_handle:"Your number or username there", l_city:"City & country",
+  l_goal:"What is your main goal?",
+  go1:"Help with school subjects", go2:"Exam preparation", go3:"University / study abroad", go4:"Career and work", go5:"Travel", go6:"General fluency", go7:"Other",
+  l_tlang:"Which language should your teacher explain in?", tl_tk:"Turkmen", tl_ru:"Russian", tl_en:"English",
+  l_format:"Which format do you prefer?", o_group:"Group course", o_indiv:"Individual lessons", o_unsure:"Not sure yet",
+  l_avail:"When can you study?", h_avail:"(your local time, choose all that work)",
+  a1:"Weekday mornings", a2:"Weekday afternoons", a3:"Weekday evenings", a4:"Weekend mornings", a5:"Weekend afternoons", a6:"Weekend evenings",
+  l_source:"How did you hear about us?", s_friend:"Friend or family", s_other:"Other",
+  l_comments:"Anything else you'd like to share?", h_opt:"(optional)",
+  e_intake:"Please complete all required fields.",
+  b_send:"Send application ✓", b_test:"Continue to level test →",
+  t_title:"English level test",
+  t_lede:"25 questions, about 10 minutes. Choose the best answer. If you're not sure, it's okay to guess or skip.",
+  e_send:"Something went wrong sending your form. Please check your connection and try again.",
+  b_back:"← Back", b_next:"Next →", b_finish:"Finish & send ✓",
+  r_title:"You're all set!", r_est:"Your estimated level:",
+  r_next:"Our team will review your results and message you within 24 hours with your course placement and schedule options.",
+  r_q:"Questions right now? Message us on",
+  d_title:"Application received!",
+  d_next:"We'll message you within 24 hours to confirm your course, schedule, and payment options.",
+  part:"Part", of:"of", answered:"answered"
+},
+ru:{
+  title:"Запишитесь на курс",
+  lede:"Расскажите о себе и выберите курс. Мы напишем вам в течение 24 часов. Студенты английского и TOEFL в конце проходят короткий тест на уровень, словарь не нужен.",
+  step_details:"О вас", step_test:"Тест по английскому",
+  l_course:"На какой курс вы записываетесь?", c_pick:"Выберите курс...",
+  c_en:"Английский", c_math:"Математика", c_ru:"Русский", c_tk:"Туркменский", c_tr:"Турецкий", c_de:"Немецкий", c_fr:"Французский",
+  c_ko:"Корейский", c_ja:"Японский", c_toefl:"Подготовка: TOEFL", c_sat:"Подготовка: SAT / GRE математика",
+  l_name:"Полное имя", l_email:"Электронная почта", l_age:"Возрастная группа", g_pick:"Выберите...", g1:"Младше 10", g5:"25 и старше",
+  l_cmethod:"Как с вами удобнее связаться?", m_email:"Электронная почта",
+  l_handle:"Ваш номер или ник там", l_city:"Город и страна",
+  l_goal:"Какая у вас главная цель?",
+  go1:"Помощь со школьными предметами", go2:"Подготовка к экзаменам", go3:"Университет / учёба за границей", go4:"Карьера и работа", go5:"Путешествия", go6:"Свободное владение", go7:"Другое",
+  l_tlang:"На каком языке преподаватель должен объяснять?", tl_tk:"На туркменском", tl_ru:"На русском", tl_en:"На английском",
+  l_format:"Какой формат вам подходит?", o_group:"Групповой курс", o_indiv:"Индивидуальные уроки", o_unsure:"Пока не знаю",
+  l_avail:"Когда вам удобно заниматься?", h_avail:"(ваше местное время, выберите все подходящие)",
+  a1:"Будни, утро", a2:"Будни, день", a3:"Будни, вечер", a4:"Выходные, утро", a5:"Выходные, день", a6:"Выходные, вечер",
+  l_source:"Как вы о нас узнали?", s_friend:"Друзья или семья", s_other:"Другое",
+  l_comments:"Хотите что-то добавить?", h_opt:"(необязательно)",
+  e_intake:"Пожалуйста, заполните все обязательные поля.",
+  b_send:"Отправить заявку ✓", b_test:"Перейти к тесту на уровень →",
+  t_title:"Тест на уровень английского",
+  t_lede:"25 вопросов, около 10 минут. Выберите лучший ответ. Если не уверены, можно угадать или пропустить.",
+  e_send:"Не удалось отправить форму. Проверьте соединение и попробуйте ещё раз.",
+  b_back:"← Назад", b_next:"Далее →", b_finish:"Завершить и отправить ✓",
+  r_title:"Готово!", r_est:"Ваш примерный уровень:",
+  r_next:"Наша команда проверит результаты и напишет вам в течение 24 часов с вариантами курса и расписания.",
+  r_q:"Есть вопросы? Напишите нам:",
+  d_title:"Заявка получена!",
+  d_next:"Мы напишем вам в течение 24 часов, чтобы подтвердить курс, расписание и оплату.",
+  part:"Часть", of:"из", answered:"отвечено"
+},
+tk:{
+  title:"Kursa ýazylyň",
+  lede:"Özüňiz barada gürrüň beriň we kursy saýlaň. 24 sagadyň dowamynda size ýazarys. Iňlis dili we TOEFL okuwçylary ahyrynda gysga dereje testini tabşyrýarlar, sözlük gerek däl.",
+  step_details:"Siz barada", step_test:"Iňlis dili testi",
+  l_course:"Haýsy kursa ýazylýarsyňyz?", c_pick:"Kursy saýlaň...",
+  c_en:"Iňlis dili", c_math:"Matematika", c_ru:"Rus dili", c_tk:"Türkmen dili", c_tr:"Türk dili", c_de:"Nemes dili", c_fr:"Fransuz dili",
+  c_ko:"Koreý dili", c_ja:"Ýapon dili", c_toefl:"Taýýarlyk: TOEFL", c_sat:"Taýýarlyk: SAT / GRE matematika",
+  l_name:"Doly adyňyz", l_email:"E-poçta", l_age:"Ýaş topary", g_pick:"Saýlaň...", g1:"10 ýaşdan kiçi", g5:"25 we ondan uly",
+  l_cmethod:"Siz bilen nädip habarlaşaly?", m_email:"E-poçta",
+  l_handle:"Şol ýerdäki belgiňiz ýa-da ulanyjy adyňyz", l_city:"Şäher we ýurt",
+  l_goal:"Esasy maksadyňyz näme?",
+  go1:"Mekdep sapaklaryna kömek", go2:"Synaglara taýýarlyk", go3:"Uniwersitet / daşary ýurtda okuw", go4:"Kär we iş", go5:"Syýahat", go6:"Dili erkin bilmek", go7:"Başga",
+  l_tlang:"Mugallym haýsy dilde düşündirsin?", tl_tk:"Türkmen dilinde", tl_ru:"Rus dilinde", tl_en:"Iňlis dilinde",
+  l_format:"Haýsy format size laýyk?", o_group:"Toparlaýyn kurs", o_indiv:"Aýratyn sapaklar", o_unsure:"Entek bilemok",
+  l_avail:"Haçan okap bilersiňiz?", h_avail:"(ýerli wagtyňyz, ähli laýyk wagtlary saýlaň)",
+  a1:"Iş günleri, irden", a2:"Iş günleri, günortan", a3:"Iş günleri, agşam", a4:"Dynç günleri, irden", a5:"Dynç günleri, günortan", a6:"Dynç günleri, agşam",
+  l_source:"Biz barada nireden eşitdiňiz?", s_friend:"Dost ýa-da maşgala", s_other:"Başga",
+  l_comments:"Başga aýtjak zadyňyz barmy?", h_opt:"(hökmany däl)",
+  e_intake:"Ähli hökmany meýdanlary dolduryň.",
+  b_send:"Arzany iber ✓", b_test:"Dereje testine geç →",
+  t_title:"Iňlis dili dereje testi",
+  t_lede:"25 sorag, takmynan 10 minut. Iň dogry jogaby saýlaň. Bilmeseňiz, çaklamak ýa-da goýbermek bolýar.",
+  e_send:"Formany ibermek başartmady. Internetiňizi barlaň we täzeden synanyşyň.",
+  b_back:"← Yza", b_next:"Indiki →", b_finish:"Tamamla we iber ✓",
+  r_title:"Taýýar!", r_est:"Çak edilýän derejäňiz:",
+  r_next:"Toparymyz netijeleri gözden geçirer we 24 sagadyň dowamynda kurs we tertip barada size ýazar.",
+  r_q:"Sorag barmy? Bize ýazyň:",
+  d_title:"Arzaňyz kabul edildi!",
+  d_next:"Kursy, tertibi we tölegi tassyklamak üçin 24 sagadyň dowamynda size ýazarys.",
+  part:"Bölüm", of:"/", answered:"jogaplandy"
+},
+tr:{
+  title:"Kursa kaydolun",
+  lede:"Bize kendinizden bahsedin ve kursunuzu seçin. 24 saat içinde size yazarız. İngilizce ve TOEFL öğrencileri sonunda kısa bir seviye testi çözer, sözlük gerekmez.",
+  step_details:"Bilgileriniz", step_test:"İngilizce seviye testi",
+  l_course:"Hangi kursa kaydoluyorsunuz?", c_pick:"Kurs seçin...",
+  c_en:"İngilizce", c_math:"Matematik", c_ru:"Rusça", c_tk:"Türkmence", c_tr:"Türkçe", c_de:"Almanca", c_fr:"Fransızca",
+  c_ko:"Korece", c_ja:"Japonca", c_toefl:"Hazırlık: TOEFL", c_sat:"Hazırlık: SAT / GRE matematik",
+  l_name:"Ad soyad", l_email:"E-posta", l_age:"Yaş grubu", g_pick:"Seçin...", g1:"10 yaş altı", g5:"25 ve üzeri",
+  l_cmethod:"Size en kolay nasıl ulaşırız?", m_email:"E-posta",
+  l_handle:"Oradaki numaranız veya kullanıcı adınız", l_city:"Şehir ve ülke",
+  l_goal:"Ana hedefiniz nedir?",
+  go1:"Okul derslerine destek", go2:"Sınav hazırlığı", go3:"Üniversite / yurt dışında eğitim", go4:"Kariyer ve iş", go5:"Seyahat", go6:"Genel akıcılık", go7:"Diğer",
+  l_tlang:"Öğretmen hangi dilde anlatsın?", tl_tk:"Türkmence", tl_ru:"Rusça", tl_en:"İngilizce",
+  l_format:"Hangi format size uygun?", o_group:"Grup kursu", o_indiv:"Bireysel dersler", o_unsure:"Henüz emin değilim",
+  l_avail:"Ne zaman çalışabilirsiniz?", h_avail:"(yerel saatiniz, uygun olanların hepsini seçin)",
+  a1:"Hafta içi sabah", a2:"Hafta içi öğleden sonra", a3:"Hafta içi akşam", a4:"Hafta sonu sabah", a5:"Hafta sonu öğleden sonra", a6:"Hafta sonu akşam",
+  l_source:"Bizi nereden duydunuz?", s_friend:"Arkadaş veya aile", s_other:"Diğer",
+  l_comments:"Paylaşmak istediğiniz başka bir şey var mı?", h_opt:"(isteğe bağlı)",
+  e_intake:"Lütfen tüm zorunlu alanları doldurun.",
+  b_send:"Başvuruyu gönder ✓", b_test:"Seviye testine geç →",
+  t_title:"İngilizce seviye testi",
+  t_lede:"25 soru, yaklaşık 10 dakika. En iyi cevabı seçin. Emin değilseniz tahmin edebilir veya atlayabilirsiniz.",
+  e_send:"Form gönderilemedi. Bağlantınızı kontrol edip tekrar deneyin.",
+  b_back:"← Geri", b_next:"İleri →", b_finish:"Bitir ve gönder ✓",
+  r_title:"Hazırsınız!", r_est:"Tahmini seviyeniz:",
+  r_next:"Ekibimiz sonuçları inceleyecek ve 24 saat içinde kurs ve program seçenekleriyle size yazacak.",
+  r_q:"Şu an sorunuz mu var? Bize yazın:",
+  d_title:"Başvurunuz alındı!",
+  d_next:"Kursunuzu, programınızı ve ödeme seçeneklerini onaylamak için 24 saat içinde size yazacağız.",
+  part:"Bölüm", of:"/", answered:"cevaplandı"
+}
+};
+let lang = "en";
+function applyStrings(){
+  document.querySelectorAll("[data-i18n]").forEach(el=>{
+    const k = el.getAttribute("data-i18n");
+    if(STR[lang][k] !== undefined) el.textContent = STR[lang][k];
+  });
+  document.getElementById("f-uilang").value = lang;
+  updateMainBtn();
+  updateStepLabel();
+  if(!document.getElementById("step-test").classList.contains("hidden")) renderPage();
+}
+function setTheme(theme){
+  document.documentElement.setAttribute('data-theme', theme);
+  try{ localStorage.setItem('elight-theme', theme); }catch(e){}
+}
+function toggleTheme(){
+  const current = document.documentElement.getAttribute('data-theme')==='light' ? 'light' : 'dark';
+  setTheme(current==='light' ? 'dark' : 'light');
+}
+function setLang(l){
+  lang = l;
+  ["en","ru","tk","tr"].forEach(x=>document.getElementById("btn-"+x).classList.toggle("active", x===l));
+  applyStrings();
+}
+function updateStepLabel(){
+  const onTest = !document.getElementById("step-test").classList.contains("hidden");
+  document.getElementById("step-label").textContent = onTest ? STR[lang].step_test : STR[lang].step_details;
+}
+function updateMainBtn(){
+  const needsTest = ["English","TOEFL prep"].includes(document.getElementById("course").value);
+  document.getElementById("main-btn").textContent = needsTest ? STR[lang].b_test : STR[lang].b_send;
+}
+document.getElementById("course").addEventListener("change", updateMainBtn);
+
+/* ================= test questions ================= */
+const Q = [
+["She ___ a teacher.",["is","are","am","be"],0,"A1"],
+["___ you like coffee?",["Do","Does","Are","Is"],0,"A1"],
+["This is my brother. ___ name is Alan.",["His","Her","Its","He"],0,"A1"],
+["There ___ two books on the table.",["are","is","be","am"],0,"A1"],
+["I get up ___ 7 o'clock.",["at","in","on","by"],0,"A1"],
+["I ___ to the cinema last night.",["went","go","gone","going"],0,"A2"],
+["She's taller ___ her sister.",["than","that","as","of"],0,"A2"],
+["We ___ dinner when the phone rang.",["were having","had had","have","are having"],0,"A2"],
+["I've lived here ___ 2019.",["since","for","from","at"],0,"A2"],
+["You ___ smoke in the hospital. It's forbidden.",["mustn't","don't have to","couldn't","wouldn't"],0,"A2"],
+["If it rains tomorrow, we ___ at home.",["will stay","would stay","stayed","staying"],0,"B1"],
+["The report ___ by the manager yesterday.",["was signed","signed","is signing","has signed"],0,"B1"],
+["She asked me where ___.",["I lived","do I live","did I lived","am I living"],0,"B1"],
+["I'm used ___ up early now.",["to getting","to get","getting","get"],0,"B1"],
+["He's the man ___ car was stolen.",["whose","who","which","whom"],0,"B1"],
+["I wish I ___ more time to travel.",["had","have","would has","having"],0,"B2"],
+["By next June, she ___ her degree.",["will have finished","will finish soon","finishes","has finish"],0,"B2"],
+["___ he was tired, he kept working.",["Although","Despite","However","Because of"],0,"B2"],
+["The meeting was called ___ at the last minute.",["off","out","down","away"],0,"B2"],
+["If I had known about the problem, I ___ you.",["would have told","would tell","told","will tell"],0,"B2"],
+["Not until she arrived home ___ she'd lost her keys.",["did she realize","she realized","she did realize","realized she"],0,"C1"],
+["The proposal was turned down, ___ came as no surprise.",["which","what","that","it"],0,"C1"],
+["He was on the ___ of resigning when they offered him a promotion.",["verge","border","rim","tip"],0,"C1"],
+["___ the bad weather, the flight departed on time.",["Notwithstanding","Nevertheless","Even","Albeit"],0,"C1"],
+["Scarcely ___ the door when the alarm went off.",["had he opened","he had opened","he opened","did he opened"],0,"C1"]
+];
+const quiz = Q.map(([q,opts,ci,lvl])=>{
+  const correct = opts[ci];
+  const shuffled = [...opts].sort(()=>Math.random()-0.5);
+  return {q, opts:shuffled, correct, lvl, answer:null};
+});
+const PER_PAGE = 5, PAGES = Math.ceil(quiz.length/PER_PAGE);
+let page = 0;
+
+/* ================= flow ================= */
+function validateIntake(){
+  const form = document.getElementById("enroll-form");
+  const textIds = ["name","email","handle","city"];
+  let ok = textIds.every(id => document.getElementById(id).value.trim() !== "");
+  const selIds = ["course","age","contact-method","goal"];
+  ok = ok && selIds.every(id => document.getElementById(id).value !== "");
+  if(!form.querySelector('input[name="teaching_language"]:checked')) ok = false;
+  if(!form.querySelector('input[name="format"]:checked')) ok = false;
+  if(!document.getElementById("email").checkValidity()) ok = false;
+  document.getElementById("intake-err").classList.toggle("show", !ok);
+  return ok;
+}
+
+function handleMain(){
+  if(!validateIntake()) return;
+  if(["English","TOEFL prep"].includes(document.getElementById("course").value)){
+    document.getElementById("step-intake").classList.add("hidden");
+    document.getElementById("step-test").classList.remove("hidden");
+    page = 0;
+    updateStepLabel();
+    renderPage();
+    window.scrollTo({top:0});
+  } else {
+    submitForm(false);
+  }
+}
+
+function renderPage(){
+  const c = document.getElementById("q-container");
+  c.innerHTML = "";
+  const start = page*PER_PAGE, end = Math.min(start+PER_PAGE, quiz.length);
+  for(let i=start;i<end;i++){
+    const item = quiz[i];
+    const qDiv = document.createElement("div");
+    qDiv.className = "q";
+    const opts = item.opts.map(o=>`
+      <label class="opt"><input type="radio" name="q${i}" value="${o.replace(/"/g,'&quot;')}" ${item.answer===o?"checked":""}> ${o}</label>`).join("");
+    qDiv.innerHTML = `<div class="q-num">${STR[lang].part} ${page+1} ${STR[lang].of} ${PAGES} · Q${i+1}/${quiz.length}</div>
+      <div class="q-text">${item.q}</div><div class="opts">${opts}</div>`;
+    c.appendChild(qDiv);
+    qDiv.querySelectorAll("input").forEach(inp=>{
+      inp.addEventListener("change",()=>{ item.answer = inp.value; });
+    });
+  }
+  const pct = (page/PAGES)*100;
+  document.getElementById("bar").style.width = pct + "%";
+  document.getElementById("pct").textContent = Math.round(pct) + "%";
+  document.getElementById("back-btn").style.visibility = page===0 ? "hidden":"visible";
+  document.getElementById("next-btn").textContent = page===PAGES-1 ? STR[lang].b_finish : STR[lang].b_next;
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+function prevPage(){ if(page>0){page--;renderPage();} }
+function nextPage(){
+  if(page < PAGES-1){ page++; renderPage(); }
+  else {
+    const r = score();
+    document.getElementById("f-score").value = r.total + "/25";
+    document.getElementById("f-level").value = r.label;
+    document.getElementById("f-breakdown").value =
+      `A1:${r.byLevel.A1}/5 A2:${r.byLevel.A2}/5 B1:${r.byLevel.B1}/5 B2:${r.byLevel.B2}/5 C1:${r.byLevel.C1}/5`;
+    document.getElementById("f-answers").value = JSON.stringify(quiz.map(it=>({q:it.q, a:it.answer, ok:it.answer===it.correct})));
+    submitForm(true, r);
+  }
+}
+
+function score(){
+  const byLevel = {A1:0,A2:0,B1:0,B2:0,C1:0};
+  let total = 0;
+  quiz.forEach(it=>{ if(it.answer === it.correct){ byLevel[it.lvl]++; total++; } });
+  const order = ["A1","A2","B1","B2","C1"];
+  let level = "Pre-A1 (Beginner)";
+  for(const l of order){ if(byLevel[l] >= 3) level = l; else break; }
+  const names = {A1:"A1 (Elementary)",A2:"A2 (Pre-Intermediate)",B1:"B1 (Intermediate)",B2:"B2 (Upper-Intermediate)",C1:"C1 (Advanced)"};
+  return {total, byLevel, label: names[level] || level};
+}
+
+async function submitForm(withTest, r){
+  const form = document.getElementById("enroll-form");
+  const data = new URLSearchParams();
+  new FormData(form).forEach((v,k)=>data.append(k,v));
+  const btn = withTest ? document.getElementById("next-btn") : document.getElementById("main-btn");
+  const original = btn.textContent;
+  btn.disabled = true; btn.textContent = "…";
+  try{
+    const resp = await fetch("/", {
+      method:"POST",
+      headers:{"Content-Type":"application/x-www-form-urlencoded"},
+      body:data.toString()
+    });
+    if(!resp.ok) throw new Error("submit failed");
+    document.getElementById("step-intake").classList.add("hidden");
+    document.getElementById("step-test").classList.add("hidden");
+    if(withTest){
+      document.getElementById("step-done-test").classList.remove("hidden");
+      document.getElementById("level-out").textContent = r.label;
+      document.getElementById("score-out").textContent = r.total + " / 25 " + STR[lang].answered;
+    } else {
+      document.getElementById("step-done-plain").classList.remove("hidden");
+    }
+    document.getElementById("bar").style.width = "100%";
+    document.getElementById("pct").textContent = "100%";
+    document.getElementById("step-label").textContent = "✓";
+    window.scrollTo({top:0});
+  }catch(e){
+    document.getElementById("test-err").classList.add("show");
+    document.getElementById("intake-err").textContent = STR[lang].e_send;
+    document.getElementById("intake-err").classList.add("show");
+    btn.disabled = false; btn.textContent = original;
+  }
+}
+
+/* timezone auto-detect */
+try{
+  document.getElementById("tz-field").value = Intl.DateTimeFormat().resolvedOptions().timeZone || "unknown";
+}catch(e){ document.getElementById("tz-field").value = "unknown"; }
+</script>
+</body>
+</html>
