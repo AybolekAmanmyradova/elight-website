@@ -1,0 +1,14 @@
+{
+  "name": "Elight Online School",
+  "short_name": "Elight",
+  "description": "Online school for the next generation of Central Asian leaders.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1C3A5E",
+  "theme_color": "#1C3A5E",
+  "icons": [
+    { "src": "/logo/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/logo/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/logo/favicon.svg", "type": "image/svg+xml" }
+  ]
+}
