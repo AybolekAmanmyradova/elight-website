@@ -657,37 +657,63 @@ async function submitForm(withTest, r){
   const btn = withTest ? document.getElementById("next-btn") : document.getElementById("main-btn");
   const original = btn.textContent;
   btn.disabled = true; btn.textContent = "…";
+
+  // Resilient send: 15s timeout + up to 3 attempts, for throttled/flaky mobile networks.
+  async function sendOnce(){
+    const ctrl = new AbortController();
+    const t = setTimeout(function(){ ctrl.abort(); }, 15000);
+    try{
+      const resp = await fetch("/", {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:data.toString(), signal:ctrl.signal});
+      return resp.ok;
+    }catch(e){ return false; }
+    finally{ clearTimeout(t); }
+  }
+  let sent = false;
+  for(let a=0; a<3 && !sent; a++){
+    sent = await sendOnce();
+    if(!sent && a<2) await new Promise(function(res){ setTimeout(res, 1200*(a+1)); });
+  }
+
+  if(sent && window.fbq){ try{ fbq("track","Lead",{content_name: withTest?"Enrollment + placement test":"Enrollment", content_category:(document.getElementById("course")||{}).value||""}); }catch(e){} }
+
+  // Always advance to the done screen; isolated so a UI error can never show a false "send failed".
   try{
-    const resp = await fetch("/", {
-      method:"POST",
-      headers:{"Content-Type":"application/x-www-form-urlencoded"},
-      body:data.toString()
-    });
-    if(!resp.ok) throw new Error("submit failed");
-    // Meta Pixel conversion: fire Lead on successful enrollment
-    if(window.fbq) fbq('track', 'Lead', {
-      content_name: withTest ? 'Enrollment + placement test' : 'Enrollment',
-      content_category: document.getElementById('course') ? document.getElementById('course').value : ''
-    });
     document.getElementById("step-intake").classList.add("hidden");
     document.getElementById("step-test").classList.add("hidden");
     if(withTest){
       document.getElementById("step-done-test").classList.remove("hidden");
-      document.getElementById("level-out").textContent = r.label;
-      document.getElementById("score-out").textContent = r.total + " / 25 " + STR[lang].answered;
+      const lv=document.getElementById("level-out"); if(lv&&r) lv.textContent=r.label;
+      const so=document.getElementById("score-out"); if(so&&r) so.textContent=r.total+" / 25 "+((STR[lang]||STR.en).answered||"");
     } else {
       document.getElementById("step-done-plain").classList.remove("hidden");
     }
-    document.getElementById("bar").style.width = "100%";
-    document.getElementById("pct").textContent = "100%";
-    document.getElementById("step-label").textContent = "✓";
+    document.getElementById("bar").style.width="100%";
+    document.getElementById("pct").textContent="100%";
+    document.getElementById("step-label").textContent="✓";
+    if(!sent){
+      const fail={
+        en:"We could not confirm your form was received. Please tap WhatsApp or Telegram below so we can secure your spot.",
+        ru:"Мы не смогли подтвердить получение вашей формы. Пожалуйста, нажмите WhatsApp или Telegram ниже, чтобы мы закрепили за вами место.",
+        tk:"Formaňyzyň alnanyny tassyklap bilmedik. Ýeriňizi berkitmek üçin aşaky WhatsApp ýa-da Telegram düwmesine basyň.",
+        tr:"Formunuzun alındığını teyit edemedik. Yerinizi ayırabilmemiz için lütfen aşağıdaki WhatsApp veya Telegram düğmesine dokunun."
+      };
+      const scope=document.getElementById(withTest?"step-done-test":"step-done-plain");
+      const notes=scope.querySelectorAll('[data-i18n="r_next"],[data-i18n="d_next"]');
+      notes.forEach(function(el){ el.removeAttribute("data-i18n"); el.textContent=fail[lang]||fail.en; el.style.color="#B00020"; el.style.fontWeight="600"; });
+      // Pre-fill the WhatsApp link with their details so one tap captures the lead.
+      try{
+        const summary=["Hi Elight! My enrollment form did not confirm. Please secure my spot.",
+          "Name: "+(data.get("full_name")||""),
+          "Course: "+(data.get("course")||"")];
+        if(data.get("test_level")) summary.push("Level: "+data.get("test_level"));
+        summary.push("Contact: "+(data.get("contact_method")||"")+" "+(data.get("contact_handle")||""));
+        const wa=scope.querySelector('a[href*="wa.me"]');
+        if(wa) wa.href="https://wa.me/19258340107?text="+encodeURIComponent(summary.join("\n"));
+      }catch(e){}
+    }
     window.scrollTo({top:0});
-  }catch(e){
-    document.getElementById("test-err").classList.add("show");
-    document.getElementById("intake-err").textContent = STR[lang].e_send;
-    document.getElementById("intake-err").classList.add("show");
-    btn.disabled = false; btn.textContent = original;
-  }
+  }catch(e){}
+  btn.disabled=false; btn.textContent=original;
 }
 
 /* timezone auto-detect */
