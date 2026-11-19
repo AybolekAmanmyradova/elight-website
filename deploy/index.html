@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="facebook-domain-verification" content="9abtfud87b95mj6xlgl49e11yhfa63" />
+  <script>(function(){try{var t=localStorage.getItem("elight-theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");}catch(e){}})();</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="google" content="notranslate">
+  <title>Elight Online School</title>
+    <link rel="icon" type="image/svg+xml" href="/logo/favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/logo/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/logo/favicon-16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <meta name="theme-color" content="#1C3A5E" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Elight — Online School for Central Asia" />
+  <meta property="og:description" content="World-class language education for the next generation of Central Asian leaders, available wherever you are." />
+  <meta property="og:image" content="https://elight.us.com/logo/elight-og-image.png" />
+  <meta property="og:url" content="https://elight.us.com/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Elight — Online School for Central Asia" />
+  <meta name="twitter:description" content="World-class language education for the next generation of Central Asian leaders, available wherever you are." />
+  <meta name="twitter:image" content="https://elight.us.com/logo/elight-og-image.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/logo/apple-touch-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1C3A5E;
+      --navy-mid: #24486F;
+      --blue: #4A90C4;
+      --blue-light: #A8D4F0;
+      --gold: #E8C45A;
+      --white: #FFFFFF;
+      --off-white: #F5F8FB;
+      --text-muted: #8A9BB0;
+      --border: rgba(74,144,196,0.15);
+
+      /* Theme tokens — dark is the default */
+      --gold-text: var(--gold);
+      --wa-text: #25D366;
+      --tg-text: #2AABEE;
+      --ig-text: #E1306C;
+      --heading: #FFFFFF;
+      --body-text: #A8D4F0;
+      --page-bg: #1C3A5E;
+      --section-alt-bg: #24486F;
+      --nav-bg: rgba(28,58,94,0.85);
+      --overlay-bg: rgba(28,58,94,0.98);
+      --card-bg: rgba(28,58,94,0.8);
+      --control-bg: rgba(255,255,255,0.1);
+      --control-bg-hover: rgba(255,255,255,0.18);
+      --control-border: rgba(255,255,255,0.3);
+    }
+
+    /* Light theme — activated by data-theme="light" on <html> */
+    [data-theme="light"] {
+      --gold-text: #8C6700;
+      --wa-text: #127A3C;
+      --tg-text: #146FA6;
+      --ig-text: #C21E60;
+      --heading: #1C3A5E;
+      --body-text: #33475B;
+      --text-muted: #5B6B7E;
+      --border: rgba(28,58,94,0.12);
+      --page-bg: #FFFFFF;
+      --section-alt-bg: #EEF4FA;
+      --nav-bg: rgba(255,255,255,0.85);
+      --overlay-bg: rgba(255,255,255,0.98);
+      --card-bg: #FFFFFF;
+      --control-bg: rgba(28,58,94,0.05);
+      --control-bg-hover: rgba(28,58,94,0.1);
+      --control-border: rgba(28,58,94,0.15);
+    }
+
+    [data-theme="light"] .course-card { box-shadow: 0 4px 20px rgba(28,58,94,0.06); }
+    [data-theme="light"] .lang-dropdown { box-shadow: 0 8px 24px rgba(28,58,94,0.12); }
+
+    /* THEME TOGGLE */
+    .theme-toggle {
+      background: var(--control-bg);
+      border: 1.5px solid var(--control-border);
+      color: var(--heading);
+      width: 40px; height: 40px; border-radius: 8px;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 1.05rem; line-height: 1; padding: 0;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .theme-toggle:hover { background: var(--control-bg-hover); border-color: var(--gold-text); }
+    .theme-toggle .icon-dark, .theme-toggle-mobile .icon-dark { display: none; }
+    .theme-toggle .icon-light, .theme-toggle-mobile .icon-light { display: inline; }
+    [data-theme="light"] .theme-toggle .icon-dark,
+    [data-theme="light"] .theme-toggle-mobile .icon-dark { display: inline; }
+    [data-theme="light"] .theme-toggle .icon-light,
+    [data-theme="light"] .theme-toggle-mobile .icon-light { display: none; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--page-bg);
+      color: var(--heading);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      text-decoration: none;
+    }
+
+    .nav-logo img {
+      height: 80px; width: 80px; border-radius: 50%; object-fit: contain; background:#fff; padding:3px;
+    }
+
+    .nav-logo-text {
+      font-size: 1.2rem; font-weight: 600; color: var(--heading); letter-spacing: 0.01em;
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 28px; list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--body-text); text-decoration: none; font-size: 0.9rem;
+      font-weight: 400; transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--heading); }
+
+    .nav-login {
+      background: var(--gold); color: var(--navy) !important;
+      padding: 11px 26px; border-radius: 8px;
+      font-weight: 700 !important; font-size: 0.95rem !important;
+      transition: opacity 0.2s, transform 0.2s !important;
+      box-shadow: 0 2px 12px rgba(232,196,90,0.35);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-login:hover { opacity: 0.92; transform: translateY(-1px); }
+
+    /* LANGUAGE SWITCHER */
+    .lang-switcher {
+      position: relative;
+    }
+
+    .lang-btn {
+      background: var(--control-bg);
+      border: 1.5px solid var(--control-border);
+      color: var(--heading);
+      padding: 9px 16px; border-radius: 8px;
+      font-size: 0.9rem; font-weight: 600;
+      cursor: pointer; display: flex; align-items: center; gap: 7px;
+      transition: background 0.2s, border-color 0.2s;
+      white-space: nowrap;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .lang-btn:hover { background: var(--control-bg-hover); border-color: var(--gold-text); color: var(--gold-text); }
+
+    .lang-btn svg { width: 14px; height: 14px; fill: var(--heading); transition: transform 0.2s; }
+    .lang-btn.open svg { transform: rotate(180deg); }
+
+    .lang-dropdown {
+      display: none;
+      position: absolute; top: calc(100% + 8px); right: 0;
+      background: var(--section-alt-bg);
+      border: 1px solid var(--border);
+      border-radius: 8px; overflow: hidden;
+      min-width: 150px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+      z-index: 200;
+    }
+
+    .lang-dropdown.open { display: block; }
+
+    .lang-option {
+      display: flex; align-items: center; gap: 10px;
+      padding: 11px 16px;
+      color: var(--body-text); font-size: 0.88rem;
+      cursor: pointer; transition: background 0.15s;
+      border: none; background: none; width: 100%; text-align: left;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .lang-option:hover { background: rgba(74,144,196,0.12); color: var(--heading); }
+    .lang-option.active { color: var(--gold-text); font-weight: 500; }
+
+    .lang-flag { font-size: 1.1rem; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 50% 40%, rgba(74,144,196,0.12) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-glow {
+      position: absolute; top: 20%; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(232,196,90,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-content { position: relative; max-width: 720px; }
+
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--gold-text);
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5rem);
+      line-height: 1.1;
+      color: var(--heading);
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span { color: var(--gold-text); }
+
+    .hero-sub {
+      font-size: 1.1rem; color: var(--body-text);
+      max-width: 520px; margin: 0 auto 40px;
+      font-weight: 300; line-height: 1.7;
+    }
+
+    .hero-cta {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--gold); color: var(--navy);
+      padding: 14px 32px; border-radius: 7px;
+      font-weight: 600; font-size: 1rem; text-decoration: none;
+      transition: opacity 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .btn-outline {
+      border: 1.5px solid var(--blue); color: var(--body-text);
+      padding: 14px 32px; border-radius: 7px;
+      font-weight: 500; font-size: 1rem; text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+    }
+
+    .btn-outline:hover { background: rgba(74,144,196,0.1); transform: translateY(-1px); }
+
+    /* SECTION BASE */
+    section { padding: 96px 24px; }
+
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--gold-text); font-weight: 500; margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      color: var(--heading); margin-bottom: 20px; line-height: 1.2;
+    }
+
+    .section-divider {
+      width: 48px; height: 2px; background: var(--gold);
+      margin-bottom: 48px;
+    }
+
+    /* ABOUT */
+    #about { background: var(--section-alt-bg); }
+
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    }
+
+    .about-text p {
+      color: var(--body-text); font-size: 1rem; line-height: 1.8;
+      margin-bottom: 16px; font-weight: 300;
+    }
+
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+
+    .stat-card {
+      background: rgba(74,144,196,0.07);
+      border: 1px solid var(--border);
+      border-radius: 10px; padding: 28px 24px;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem; color: var(--gold-text); line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label { font-size: 0.82rem; color: var(--text-muted); font-weight: 400; }
+
+    /* MISSION VISION */
+    #mission { background: var(--page-bg); }
+
+    .mv-grid {
+      display: grid; grid-template-columns: 1fr; gap: 32px; margin-top: 48px; max-width: 640px;
+    }
+
+    .mv-card {
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 40px 36px;
+      position: relative; overflow: hidden;
+    }
+
+    .mv-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--gold), var(--blue));
+    }
+
+    .mv-tag {
+      font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--gold-text); font-weight: 600; margin-bottom: 16px;
+    }
+
+    .mv-card p {
+      color: var(--body-text); font-size: 0.97rem; line-height: 1.8; font-weight: 300;
+    }
+
+    /* COURSES */
+    #courses { background: var(--section-alt-bg); }
+
+    .courses-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 8px;
+    }
+
+    .course-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px; padding: 36px 28px;
+      display: flex; flex-direction: column;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative; overflow: hidden;
+    }
+
+    .course-card:hover {
+      border-color: rgba(74,144,196,0.5);
+      transform: translateY(-4px);
+    }
+
+    .course-card.featured { border-color: var(--gold-text); }
+
+    .course-badge {
+      position: absolute; top: 20px; right: 20px;
+      background: var(--gold); color: var(--navy);
+      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 4px 10px; border-radius: 20px;
+    }
+
+    .course-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem; color: var(--heading); margin-bottom: 8px;
+    }
+
+    .course-subtitle {
+      font-size: 0.8rem; color: var(--text-muted); margin-bottom: 24px; font-weight: 400;
+    }
+
+    .course-price {
+      font-size: 1.9rem; font-weight: 600; color: var(--gold-text); margin-bottom: 4px;
+    }
+
+    .course-price-note {
+      font-size: 0.78rem; color: var(--text-muted); margin-bottom: 28px;
+    }
+
+    .course-features {
+      list-style: none; flex: 1; margin-bottom: 28px;
+    }
+
+    .course-features li {
+      font-size: 0.85rem; color: var(--body-text); padding: 7px 0;
+      border-bottom: 1px solid rgba(74,144,196,0.08);
+      display: flex; align-items: flex-start; gap: 8px; line-height: 1.5;
+      font-weight: 300;
+    }
+
+    .course-features li::before {
+      content: '✦'; color: var(--gold-text); font-size: 0.6rem; margin-top: 4px; flex-shrink: 0;
+    }
+
+    .course-enroll {
+      display: block; text-align: center;
+      background: transparent; border: 1.5px solid var(--blue);
+      color: var(--body-text); padding: 11px 20px; border-radius: 7px;
+      font-size: 0.9rem; font-weight: 500; text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .course-card.featured .course-enroll {
+      background: var(--gold); border-color: var(--gold-text); color: var(--navy); font-weight: 600;
+    }
+
+    .course-enroll:hover { background: rgba(74,144,196,0.12); }
+    .course-card.featured .course-enroll:hover { opacity: 0.88; }
+
+    /* OTHER LANGUAGES */
+    .lang-section { margin-top: 48px; }
+
+    .lang-title {
+      font-size: 1rem; font-weight: 500; color: var(--heading); margin-bottom: 20px;
+    }
+
+    .lang-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; }
+
+    .lang-card {
+      background: rgba(74,144,196,0.06);
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 20px 24px;
+    }
+
+    .lang-name { font-weight: 500; color: var(--heading); margin-bottom: 4px; font-size: 0.95rem; }
+    .lang-price { color: var(--gold-text); font-size: 0.85rem; }
+    .lang-note { color: var(--text-muted); font-size: 0.75rem; margin-top: 2px; }
+
+    /* ENROLLMENT FORM */
+
+    .form-wrap {
+      max-width: 640px; margin: 0 auto;
+      background: rgba(74,144,196,0.05);
+      border: 1px solid var(--border); border-radius: 14px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--section-alt-bg);
+      border-top: 1px solid var(--border);
+      padding: 48px 24px 32px;
+    }
+
+    .footer-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: flex-start;
+      flex-wrap: wrap; gap: 32px;
+    }
+
+    .footer-brand .nav-logo { margin-bottom: 12px; display: flex; align-items: center; gap: 10px; }
+    .footer-brand .nav-logo img { height: 68px; width: 68px; border-radius: 50%; object-fit: contain; background:#fff; padding:3px; }
+    .footer-brand p { font-size: 0.82rem; color: var(--text-muted); max-width: 240px; line-height: 1.6; }
+
+    .footer-links h4 {
+      font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold-text); margin-bottom: 14px; font-weight: 600;
+    }
+
+    .footer-links ul { list-style: none; }
+    .footer-links li { margin-bottom: 9px; }
+    .footer-links a { color: var(--text-muted); text-decoration: none; font-size: 0.88rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--heading); }
+
+    .footer-socials { display: flex; gap: 14px; margin-top: 8px; }
+
+    .social-icon {
+      width: 38px; height: 38px; border-radius: 8px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      text-decoration: none; transition: border-color 0.2s, background 0.2s;
+    }
+
+    .social-icon:hover { border-color: var(--blue); background: rgba(74,144,196,0.1); }
+    .social-icon svg { width: 18px; height: 18px; fill: var(--body-text); }
+
+    .footer-bottom {
+      max-width: 1100px; margin: 32px auto 0;
+      border-top: 1px solid var(--border); padding-top: 20px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+    }
+
+    .footer-bottom p { font-size: 0.78rem; color: var(--text-muted); }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { display: none; }
+      .about-grid, .mv-grid { grid-template-columns: 1fr; gap: 40px; }
+      .courses-grid { grid-template-columns: 1fr; }
+      .form-wrap { padding: 0; }
+      section { padding: 64px 20px; }
+      .footer-inner { flex-direction: column; }
+    }
+
+    @media (max-width: 1024px) {
+      .courses-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .courses-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+    }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 4px;
+    }
+
+    .hamburger span {
+      display: block; width: 22px; height: 2px; background: var(--heading); border-radius: 2px;
+    }
+
+    @media (max-width: 768px) { .hamburger { display: flex; } }
+
+    /* MOBILE MENU */
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: var(--overlay-bg);
+      z-index: 200;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0;
+    }
+
+    .mobile-menu.open { display: flex; }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 22px; right: 22px;
+      background: none; border: none;
+      color: var(--heading); font-size: 2rem;
+      cursor: pointer; line-height: 1;
+      padding: 8px;
+    }
+
+    .mobile-menu-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+
+    .mobile-menu-links a {
+      color: var(--body-text);
+      text-decoration: none;
+      font-size: 1.4rem;
+      font-weight: 400;
+      padding: 12px 24px;
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .mobile-menu-links a:hover { color: var(--gold-text); }
+
+    .mobile-login-btn {
+      background: var(--gold);
+      color: var(--navy) !important;
+      border-radius: 8px;
+      font-weight: 600 !important;
+      padding: 14px 32px !important;
+      font-size: 1.1rem !important;
+      margin-top: 8px;
+    }
+
+    .mobile-lang-switcher {
+      display: flex;
+      gap: 10px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .mobile-lang-btn {
+      background: rgba(74,144,196,0.12);
+      border: 1.5px solid var(--control-border);
+      color: var(--heading);
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      transition: background 0.2s, border-color 0.2s;
+    }
+
+    .mobile-lang-btn:hover,
+    .mobile-lang-btn.active {
+      background: rgba(232,196,90,0.18);
+      border-color: var(--gold-text);
+      color: var(--gold-text);
+    }
+
+  </style>
+  <style id="brand-logo-css">
+    :root{ --logo-ink:#E8C45A; --logo-spark:#FFFFFF; }
+    [data-theme="light"]{ --logo-ink:#1C3A5E; --logo-spark:#E8C45A; }
+    .nav-logo .brand-wordmark{ height:30px; width:auto; display:block; }
+    .footer-brand .brand-wordmark{ height:34px; width:auto; display:block; margin-bottom:4px; }
+    .brand .brand-wordmark{ height:26px; width:auto; display:block; }
+  </style>
+
+  <!-- Meta Pixel -->
+  <script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '3108864042617578');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=3108864042617578&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel -->
+</head>
+<body>
+
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu-close" onclick="closeMobileMenu()" aria-label="Close menu">✕</button>
+  <ul class="mobile-menu-links">
+    <li><a href="#about" data-i18n="nav_about" onclick="closeMobileMenu()">About</a></li>
+    <li><a href="#mission" data-i18n="nav_mission" onclick="closeMobileMenu()">Mission</a></li>
+    <li><a href="#courses" data-i18n="nav_courses" onclick="closeMobileMenu()">Courses</a></li>
+    <li><a href="#faq" onclick="closeMobileMenu()">FAQ</a></li>
+    <li><a href="#contact" data-i18n="nav_contact" onclick="closeMobileMenu()">Contact</a></li>
+    <li><a href="/enroll.html" data-i18n="nav_enroll" onclick="closeMobileMenu()">Get started</a></li>
+    <li><a href="https://elightschool.com" class="mobile-login-btn" data-i18n="nav_login" target="_blank" rel="noopener">Student Login</a></li>
+  </ul>
+  <div class="mobile-lang-switcher">
+    <button class="mobile-lang-btn active" id="mlang-en" onclick="setLang('en'); closeMobileMenu()">🇺🇸 EN</button>
+    <button class="mobile-lang-btn" id="mlang-ru" onclick="setLang('ru'); closeMobileMenu()">🇷🇺 RU</button>
+    <button class="mobile-lang-btn" id="mlang-tk" onclick="setLang('tk'); closeMobileMenu()">🇹🇲 TK</button>
+    <button class="mobile-lang-btn" id="mlang-tr" onclick="setLang('tr'); closeMobileMenu()">🇹🇷 TR</button>
+    <button class="mobile-lang-btn theme-toggle-mobile" onclick="toggleTheme()"><span class="icon-light">&#9728;&#65039; Light</span><span class="icon-dark">&#127769; Dark</span></button>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+
+
+    <a href="/" class="nav-logo" aria-label="Elight — home">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 402 196" role="img" aria-label="Elight" class="brand-wordmark"><g fill="var(--logo-ink, #fff)"><path transform="translate(40.00 134.40) scale(0.12 -0.12)" d="M308 -12Q232 -12 173.5 20.5Q115 53 82.5 111.5Q50 170 50 247Q50 326 82.5 386.5Q115 447 173.0 481.5Q231 516 308 516Q383 516 439.0 483.0Q495 450 526.0 394.0Q557 338 557 267Q557 257 557.0 244.5Q557 232 555 219H146V301H421Q418 350 386.5 378.0Q355 406 308 406Q274 406 245.0 390.5Q216 375 199.5 343.0Q183 311 183 262V233Q183 192 198.5 161.5Q214 131 242.0 114.5Q270 98 307 98Q344 98 368.5 114.0Q393 130 405 155H543Q529 108 496.0 70.0Q463 32 415.0 10.0Q367 -12 308 -12Z"/><path transform="translate(109.84 134.40) scale(0.12 -0.12)" d="M66 0V720H201V0Z"/><path transform="translate(139.48 134.40) scale(0.12 -0.12)" d="M66 0V504H201V0Z"/><path transform="translate(169.12 134.40) scale(0.12 -0.12)" d="M283 -232Q211 -232 157.0 -214.5Q103 -197 73.5 -161.5Q44 -126 44 -74Q44 -39 62.0 -8.0Q80 23 114.5 48.5Q149 74 201 92L252 26Q206 11 185.5 -11.5Q165 -34 165 -60Q165 -83 180.5 -99.0Q196 -115 222.5 -122.5Q249 -130 282 -130Q314 -130 337.5 -122.0Q361 -114 374.5 -98.5Q388 -83 388 -62Q388 -35 369.0 -18.0Q350 -1 293 3Q242 7 202.5 14.5Q163 22 133.0 32.5Q103 43 82.5 56.0Q62 69 49 82V105L156 220L253 189L127 65L165 131Q176 125 186.5 119.5Q197 114 213.0 109.5Q229 105 255.0 101.0Q281 97 321 94Q387 88 429.5 69.0Q472 50 492.0 18.5Q512 -13 512 -59Q512 -104 487.5 -143.5Q463 -183 412.0 -207.5Q361 -232 283 -232ZM283 149Q220 149 174.5 173.5Q129 198 104.5 239.5Q80 281 80 332Q80 383 104.5 424.5Q129 466 174.5 491.0Q220 516 283 516Q347 516 392.5 491.0Q438 466 462.0 424.5Q486 383 486 332Q486 281 462.0 239.5Q438 198 392.5 173.5Q347 149 283 149ZM283 252Q322 252 346.0 272.0Q370 292 370 331Q370 370 346.0 390.5Q322 411 283 411Q245 411 220.5 390.5Q196 370 196 331Q196 292 220.5 272.0Q245 252 283 252ZM367 408 345 504H552V424Z"/><path transform="translate(238.24 134.40) scale(0.12 -0.12)" d="M66 0V720H201V429Q226 469 267.5 492.5Q309 516 364 516Q427 516 470.0 489.5Q513 463 535.0 413.0Q557 363 557 289V0H423V277Q423 337 398.0 369.5Q373 402 319 402Q286 402 259.0 386.0Q232 370 216.5 339.5Q201 309 201 267V0Z"/><path transform="translate(310.00 134.40) scale(0.12 -0.12)" d="M293 0Q240 0 200.5 16.5Q161 33 139.0 71.5Q117 110 117 177V391H31V504H117L132 641H252V504H385V391H252V175Q252 141 267.0 128.0Q282 115 318 115H384V0Z"/></g><path d="M155.50 35.92 Q155.50 51.92 171.50 51.92 Q155.50 51.92 155.50 67.92 Q155.50 51.92 139.50 51.92 Q155.50 51.92 155.50 35.92 Z" fill="var(--logo-spark, #E8C45A)"/></svg>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about" data-i18n="nav_about">About</a></li>
+    <li><a href="#mission" data-i18n="nav_mission">Mission</a></li>
+    <li><a href="#courses" data-i18n="nav_courses">Courses</a></li>
+    <li><a href="/enroll.html" data-i18n="nav_enroll">Get started</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+    <li>
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle light and dark theme" title="Toggle theme">
+        <span class="icon-light">&#9728;&#65039;</span><span class="icon-dark">&#127769;</span>
+      </button>
+    </li>
+    <li>
+      <!-- LANGUAGE SWITCHER -->
+      <div class="lang-switcher">
+        <button class="lang-btn" id="langBtn" onclick="toggleLangMenu()">
+          <span id="currentLangFlag">🇺🇸</span>
+          <span id="currentLangLabel">EN</span>
+          <svg viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+        <div class="lang-dropdown" id="langDropdown">
+          <button class="lang-option active" onclick="setLang('en')"><span class="lang-flag">🇺🇸</span> English</button>
+          <button class="lang-option" onclick="setLang('ru')"><span class="lang-flag">🇷🇺</span> Русский</button>
+          <button class="lang-option" onclick="setLang('tk')"><span class="lang-flag">🇹🇲</span> Türkmençe</button>
+          <button class="lang-option" onclick="setLang('tr')"><span class="lang-flag">🇹🇷</span> Türkçe</button>
+        </div>
+      </div>
+    </li>
+    <li><a href="https://elightschool.com" class="nav-login" target="_blank" rel="noopener" data-i18n="nav_login">Student Login</a></li>
+  </ul>
+  <button class="hamburger" aria-label="Menu" onclick="openMobileMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <span class="hero-eyebrow">Elight Online School</span>
+    <h1 data-i18n="hero_h1_html">From Learner<br>to <span>Leader.</span></h1>
+    <p class="hero-sub" data-i18n="hero_sub">World-class language education for the next generation of Central Asian leaders, available wherever you are.</p>
+    <div class="hero-cta">
+      <a href="#courses" class="btn-outline" data-i18n="hero_cta_courses">See Courses</a>
+      <a href="/enroll.html" class="btn-primary" data-i18n="apply_btn">Apply in 2 minutes &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="section-label" data-i18n="about_label">About Us</div>
+        <h2 class="section-title" data-i18n="about_title">Education that opens doors.</h2>
+        <div class="section-divider"></div>
+        <p data-i18n="about_p1">We make world-class education accessible by offering courses in English, Russian, Turkish, Japanese, Korean, French, German, and Mathematics, as well as comprehensive standardized test preparation.</p>
+        <p data-i18n="about_p2">Elight School was founded by a woman from Central Asia who believes quality education should be within reach for everyone, no matter where they live.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-number">8+</div>
+          <div class="stat-label" data-i18n="stat1">Languages &amp; Subjects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label" data-i18n="stat2">Online &amp; Flexible</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">10</div>
+          <div class="stat-label" data-i18n="stat3">Week Programs</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">∞</div>
+          <div class="stat-label" data-i18n="stat4">Community Access</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:32px;">
+        <a href="/enroll.html" class="btn-primary" data-i18n="hero_cta_enroll">Choose your course</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION & VISION -->
+<section id="mission">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="mv_label">Our Purpose</div>
+    <h2 class="section-title" data-i18n="mv_title">What drives us.</h2>
+    <div class="section-divider"></div>
+    <div class="mv-grid">
+      <div class="mv-card">
+        <div class="mv-tag" data-i18n="mission_tag">Mission</div>
+        <p data-i18n="mission_text">To equip youth across Central Asia with the English skills, academic confidence, and career readiness they need to compete and lead in a global world. We do this through modern, technology-powered education that meets students where they are.</p>
+      </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+  <div class="section-inner">
+    <div class="section-label" data-i18n="courses_label">Our Programs</div>
+    <h2 class="section-title" data-i18n="courses_title">Find your course.</h2>
+    <div class="section-divider"></div>
+
+    <div class="courses-grid">
+      <!-- Small Group -->
+      <div class="course-card featured">
+        <div class="course-badge" data-i18n="popular_badge">Popular</div>
+        <div class="course-title" data-i18n="c1_title">Small Group</div>
+        <div class="course-subtitle" data-i18n="c1_sub">English · 10 Weeks</div>
+        <div class="course-price">
+          $75<span style="font-size:0.85rem;font-weight:400;color:var(--text-muted)"> / 4 weeks</span>
+          &nbsp;&nbsp;
+          <span style="font-size:1.1rem;color:var(--body-text);">$175 / 10 weeks</span>
+        </div>
+        <div class="course-price-note" data-i18n="c1_price_note">
+          Was <span style="text-decoration:line-through;color:var(--text-muted);">$187.50</span> &mdash; save $12.50 on full course
+        </div>
+        <ul class="course-features">
+          <li data-i18n="cf_small_group_speaking">Small group speaking lessons 2×/week with instructor</li>
+          <li data-i18n="cf_self_paced">3–4 self-paced platform lessons per week (Speaking, Writing, Reading, Listening)</li>
+          <li data-i18n="cf_grammar">In-depth grammar video lessons</li>
+          <li data-i18n="cf_review">Individual lesson review by instructor</li>
+          <li data-i18n="cf_account">Personal student account on our platform</li>
+          <li data-i18n="cf_access">1 year platform access from course start</li>
+          <li data-i18n="cf_community">Lifetime Elight Community membership</li>
+          <li data-i18n="cf_coordinator">Student Care Coordinator support</li>
+          <li data-i18n="cf_cert">Certificate upon completion</li>
+        </ul>
+        <a href="/enroll.html" class="course-enroll" data-i18n="enroll_btn">Test your level free →</a>
+      </div>
+
+      <!-- Paired -->
+      <div class="course-card">
+        <div class="course-title" data-i18n="c2_title">2 Person Group Lessons</div>
+        <div class="course-subtitle" data-i18n="c2_sub">English · 10 Weeks</div>
+        <div class="course-price">
+          $99<span style="font-size:0.85rem;font-weight:400;color:var(--text-muted)"> / 4 weeks</span>
+          &nbsp;&nbsp;
+          <span style="font-size:1.1rem;color:var(--body-text);">$237.50 / 10 weeks</span>
+        </div>
+        <div class="course-price-note" data-i18n="c2_price_note">
+          Was <span style="text-decoration:line-through;color:var(--text-muted);">$249.99</span> &mdash; save $12.49 on full course
+        </div>
+        <ul class="course-features">
+          <li data-i18n="cf_paired_speaking">Paired speaking lessons 2×/week with instructor</li>
+          <li data-i18n="cf_self_paced">3–4 self-paced platform lessons per week (Speaking, Writing, Reading, Listening)</li>
+          <li data-i18n="cf_grammar">In-depth grammar video lessons</li>
+          <li data-i18n="cf_review">Individual lesson review by instructor</li>
+          <li data-i18n="cf_account">Personal student account on our platform</li>
+          <li data-i18n="cf_access">1 year platform access from course start</li>
+          <li data-i18n="cf_community">Lifetime Elight Community membership</li>
+          <li data-i18n="cf_coordinator">Student Care Coordinator support</li>
+          <li data-i18n="cf_cert">Certificate upon completion</li>
+        </ul>
+        <a href="/enroll.html" class="course-enroll" data-i18n="enroll_btn">Test your level free →</a>
+      </div>
+
+      <!-- Individual -->
+      <div class="course-card">
+        <div class="course-title" data-i18n="c3_title">Individual</div>
+        <div class="course-subtitle" data-i18n="c3_sub">English · Fully Personalized</div>
+        <div class="course-price">$159.99<span style="font-size:0.85rem;font-weight:400;color:var(--text-muted)"> / 4 weeks</span></div>
+        <div class="course-price-note" data-i18n="c3_price_note">12 weeks for $449.99 <span style="text-decoration:line-through;color:var(--text-muted);">$479.97</span> — save $29.98</div>
+        <ul class="course-features">
+          <li data-i18n="cf_live">3 live 1-on-1 lessons per week with instructor</li>
+          <li data-i18n="cf_flexible_start">Flexible start date, begin any day</li>
+          <li data-i18n="cf_personalized">Personalized curriculum based on your goals</li>
+          <li data-i18n="cf_self_paced">3–4 self-paced platform lessons per week (Speaking, Writing, Reading, Listening)</li>
+          <li data-i18n="cf_reschedule">Ability to reschedule or freeze with advance notice</li>
+          <li data-i18n="cf_flex_length">Flexible course length</li>
+          <li data-i18n="cf_community">Lifetime Elight Community membership</li>
+          <li data-i18n="cf_coordinator">Student Care Coordinator support</li>
+          <li data-i18n="cf_cert">Certificate upon completion</li>
+        </ul>
+        <a href="/enroll.html" class="course-enroll" data-i18n="enroll_btn">Test your level free →</a>
+      </div>
+    </div>
+
+    <!-- Other Languages -->
+    <div class="lang-section">
+      <p class="lang-title" data-i18n="other_langs_title">Other Languages &amp; Subjects</p>
+      <div class="lang-grid">
+        <div class="lang-card">
+          <div class="lang-name" data-i18n="subj_math">Math</div>
+          <div class="lang-price">$199.99</div>
+          <div class="lang-note" data-i18n="lessons_12">12 lessons</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-name" data-i18n="subj_russian">Russian</div>
+          <div class="lang-price">$150</div>
+          <div class="lang-note" data-i18n="lessons_12">12 lessons</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-name" data-i18n="subj_turkish">Turkish</div>
+          <div class="lang-price">$150</div>
+          <div class="lang-note" data-i18n="lessons_12">12 lessons</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-name" data-i18n="subj_japanese">Japanese</div>
+          <div class="lang-price">$159.99<span style="font-size:0.75rem;color:var(--text-muted)"> / 4 wks</span></div>
+          <div class="lang-note" data-i18n="individual_format">Individual format</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-name" data-i18n="subj_korean">Korean</div>
+          <div class="lang-price">$159.99<span style="font-size:0.75rem;color:var(--text-muted)"> / 4 wks</span></div>
+          <div class="lang-note" data-i18n="individual_format">Individual format</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-name" data-i18n="subj_french">French</div>
+          <div class="lang-price">$159.99<span style="font-size:0.75rem;color:var(--text-muted)"> / 4 wks</span></div>
+          <div class="lang-note" data-i18n="individual_format">Individual format</div>
+        </div>
+        <div class="lang-card">
+          <div class="lang-name" data-i18n="subj_german">German</div>
+          <div class="lang-price">$159.99<span style="font-size:0.75rem;color:var(--text-muted)"> / 4 wks</span></div>
+          <div class="lang-note" data-i18n="individual_format">Individual format</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+<!-- FAQ SECTION -->
+<section id="faq" style="padding:96px 24px;background:var(--page-bg);">
+  <div style="max-width:800px;margin:0 auto;">
+    <div style="font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-text);margin-bottom:12px;">FAQ</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--heading);margin-bottom:20px;line-height:1.2;">Common questions.</h2>
+    <div style="width:48px;height:2px;background:var(--gold);margin-bottom:48px;"></div>
+
+    <div id="faq-list" style="display:flex;flex-direction:column;gap:14px;">
+
+      <details class="faq-item" style="background:var(--card-bg);border:1px solid rgba(74,144,196,0.15);border-radius:12px;overflow:hidden;">
+        <summary style="cursor:pointer;font-weight:500;color:var(--heading);font-size:0.97rem;padding:22px 28px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <span>How do I sign up?</span>
+          <span class="faq-arrow" style="color:var(--gold-text);font-size:1.1rem;flex-shrink:0;transition:transform 0.2s;">＋</span>
+        </summary>
+        <p style="color:var(--body-text);padding:0 28px 22px;font-size:0.92rem;line-height:1.8;font-weight:300;margin:0;">Fill out the form and a member of our team will reach out to you within 24 hours. Do not forget to add a WhatsApp or Telegram phone number, or handle for your socials so we can contact you. Or message us on Instagram, TikTok, WhatsApp or Telegram at +1 (925) 834-0107.</p>
+      </details>
+
+      <details class="faq-item" style="background:var(--card-bg);border:1px solid rgba(74,144,196,0.15);border-radius:12px;overflow:hidden;">
+        <summary style="cursor:pointer;font-weight:500;color:var(--heading);font-size:0.97rem;padding:22px 28px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <span>I don't know my English language level. Can you help?</span>
+          <span class="faq-arrow" style="color:var(--gold-text);font-size:1.1rem;flex-shrink:0;transition:transform 0.2s;">＋</span>
+        </summary>
+        <p style="color:var(--body-text);padding:0 28px 22px;font-size:0.92rem;line-height:1.8;font-weight:300;margin:0;">Yes! We will send you a test to determine your English language level.</p>
+      </details>
+
+      <details class="faq-item" style="background:var(--card-bg);border:1px solid rgba(74,144,196,0.15);border-radius:12px;overflow:hidden;">
+        <summary style="cursor:pointer;font-weight:500;color:var(--heading);font-size:0.97rem;padding:22px 28px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <span>Do you accept payments from my country?</span>
+          <span class="faq-arrow" style="color:var(--gold-text);font-size:1.1rem;flex-shrink:0;transition:transform 0.2s;">＋</span>
+        </summary>
+        <p style="color:var(--body-text);padding:0 28px 22px;font-size:0.92rem;line-height:1.8;font-weight:300;margin:0;">Yes, we accept payments from everywhere. We accept cash payments in Ashgabat, Sberbank in Russia, Zelle in the USA, and PayPal and card payments from everywhere else. Message us and we will help you with the payment.</p>
+      </details>
+
+      <details class="faq-item" style="background:var(--card-bg);border:1px solid rgba(74,144,196,0.15);border-radius:12px;overflow:hidden;">
+        <summary style="cursor:pointer;font-weight:500;color:var(--heading);font-size:0.97rem;padding:22px 28px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <span>Can I choose my lesson times?</span>
+          <span class="faq-arrow" style="color:var(--gold-text);font-size:1.1rem;flex-shrink:0;transition:transform 0.2s;">＋</span>
+        </summary>
+        <p style="color:var(--body-text);padding:0 28px 22px;font-size:0.92rem;line-height:1.8;font-weight:300;margin:0;">For individual lessons, we will schedule lesson times based on your availability. For group lessons, we will do our best to find a time that works for the majority.</p>
+      </details>
+
+      <details class="faq-item" style="background:var(--card-bg);border:1px solid rgba(74,144,196,0.15);border-radius:12px;overflow:hidden;">
+        <summary style="cursor:pointer;font-weight:500;color:var(--heading);font-size:0.97rem;padding:22px 28px;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+          <span>Can I meet the instructors?</span>
+          <span class="faq-arrow" style="color:var(--gold-text);font-size:1.1rem;flex-shrink:0;transition:transform 0.2s;">＋</span>
+        </summary>
+        <p style="color:var(--body-text);padding:0 28px 22px;font-size:0.92rem;line-height:1.8;font-weight:300;margin:0;">Please check our <a href="https://www.instagram.com/elight.us?igsh=bjB4aHA0Z25mODNm&utm_source=qr" target="_blank" style="color:var(--gold-text);text-decoration:underline;">Instagram page</a> to learn about our instructors.</p>
+      </details>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq-item[open] summary .faq-arrow { transform: rotate(45deg); }
+  .faq-item summary::-webkit-details-marker { display: none; }
+  .faq-item { transition: border-color 0.2s; }
+  .faq-item[open] { border-color: rgba(74,144,196,0.4) !important; }
+  .faq-item summary:hover { background: rgba(74,144,196,0.05); }
+</style>
+
+<!-- CONTACT SECTION -->
+<section id="contact" style="padding:96px 24px;background:var(--section-alt-bg);">
+  <div style="max-width:900px;margin:0 auto;text-align:center;">
+    <div style="font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold-text);margin-bottom:12px;" data-i18n="contact_label">Contact Us</div>
+    <h2 style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);color:var(--heading);margin-bottom:16px;line-height:1.2;" data-i18n="contact_title">Let's get in touch.</h2>
+    <p style="color:var(--body-text);font-size:1rem;font-weight:300;margin-bottom:48px;max-width:480px;margin-left:auto;margin-right:auto;" data-i18n="contact_sub">Have questions? We're one message away. Reach out on any platform.</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:860px;margin:0 auto;">
+
+      <!-- WhatsApp -->
+      <a id="contact-wa" href="https://wa.me/message/NZQYXBHHW3YXI1" target="_blank" rel="noopener"
+        style="display:flex;flex-direction:column;align-items:center;gap:12px;background:var(--card-bg);border:1px solid rgba(74,144,196,0.15);border-radius:14px;padding:28px 20px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;"
+        onmouseover="this.style.borderColor='#25D366';this.style.transform='translateY(-4px)'"
+        onmouseout="this.style.borderColor='rgba(74,144,196,0.15)';this.style.transform=''">
+        <div style="width:52px;height:52px;border-radius:50%;background:rgba(37,211,102,0.15);display:flex;align-items:center;justify-content:center;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="#25D366"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:600;color:var(--heading);font-size:0.95rem;margin-bottom:4px;" data-i18n="contact_wa_label">WhatsApp</div>
+          <div id="contact-wa-number" style="font-size:0.82rem;color:var(--wa-text);">+1 (925) 834-0107</div>
+        </div>
+      </a>
+
+      <!-- Telegram -->
+      <a id="contact-tg" href="https://t.me/+19258340107" target="_blank" rel="noopener"
+        style="display:flex;flex-direction:column;align-items:center;gap:12px;background:var(--card-bg);border:1px solid rgba(74,144,196,0.15);border-radius:14px;padding:28px 20px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;"
+        onmouseover="this.style.borderColor='#2AABEE';this.style.transform='translateY(-4px)'"
+        onmouseout="this.style.borderColor='rgba(74,144,196,0.15)';this.style.transform=''">
+        <div style="width:52px;height:52px;border-radius:50%;background:rgba(42,171,238,0.15);display:flex;align-items:center;justify-content:center;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="#2AABEE"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:600;color:var(--heading);font-size:0.95rem;margin-bottom:4px;" data-i18n="contact_tg_label">Telegram</div>
+          <div id="contact-tg-number" style="font-size:0.82rem;color:var(--tg-text);">+1 (925) 834-0107</div>
+        </div>
+      </a>
+
+      <!-- Instagram -->
+      <a id="contact-ig" href="https://www.instagram.com/elight.us?igsh=bjB4aHA0Z25mODNm&utm_source=qr" target="_blank" rel="noopener"
+        style="display:flex;flex-direction:column;align-items:center;gap:12px;background:var(--card-bg);border:1px solid rgba(74,144,196,0.15);border-radius:14px;padding:28px 20px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;"
+        onmouseover="this.style.borderColor='#E1306C';this.style.transform='translateY(-4px)'"
+        onmouseout="this.style.borderColor='rgba(74,144,196,0.15)';this.style.transform=''">
+        <div style="width:52px;height:52px;border-radius:50%;background:rgba(225,48,108,0.15);display:flex;align-items:center;justify-content:center;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="#E1306C"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:600;color:var(--heading);font-size:0.95rem;margin-bottom:4px;" data-i18n="contact_ig_label">Instagram</div>
+          <div id="contact-ig-handle" style="font-size:0.82rem;color:var(--ig-text);">@elight.us</div>
+        </div>
+      </a>
+
+      <!-- TikTok -->
+      <a id="contact-tt" href="https://www.tiktok.com/@elight.us?_r=1&_t=ZP-97F4XeBrtfC" target="_blank" rel="noopener"
+        style="display:flex;flex-direction:column;align-items:center;gap:12px;background:var(--card-bg);border:1px solid rgba(74,144,196,0.15);border-radius:14px;padding:28px 20px;text-decoration:none;transition:border-color 0.2s,transform 0.2s;"
+        onmouseover="this.style.borderColor='#A8D4F0';this.style.transform='translateY(-4px)'"
+        onmouseout="this.style.borderColor='rgba(74,144,196,0.15)';this.style.transform=''">
+        <div style="width:52px;height:52px;border-radius:50%;background:rgba(168,212,240,0.15);display:flex;align-items:center;justify-content:center;">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="#A8D4F0"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.77a4.85 4.85 0 01-1.01-.08z"/></svg>
+        </div>
+        <div>
+          <div style="font-weight:600;color:var(--heading);font-size:0.95rem;margin-bottom:4px;" data-i18n="contact_tt_label">TikTok</div>
+          <div id="contact-tt-handle" style="font-size:0.82rem;color:var(--body-text);">@elight.us</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="nav-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 402 196" role="img" aria-label="Elight" class="brand-wordmark"><g fill="var(--logo-ink, #fff)"><path transform="translate(40.00 134.40) scale(0.12 -0.12)" d="M308 -12Q232 -12 173.5 20.5Q115 53 82.5 111.5Q50 170 50 247Q50 326 82.5 386.5Q115 447 173.0 481.5Q231 516 308 516Q383 516 439.0 483.0Q495 450 526.0 394.0Q557 338 557 267Q557 257 557.0 244.5Q557 232 555 219H146V301H421Q418 350 386.5 378.0Q355 406 308 406Q274 406 245.0 390.5Q216 375 199.5 343.0Q183 311 183 262V233Q183 192 198.5 161.5Q214 131 242.0 114.5Q270 98 307 98Q344 98 368.5 114.0Q393 130 405 155H543Q529 108 496.0 70.0Q463 32 415.0 10.0Q367 -12 308 -12Z"/><path transform="translate(109.84 134.40) scale(0.12 -0.12)" d="M66 0V720H201V0Z"/><path transform="translate(139.48 134.40) scale(0.12 -0.12)" d="M66 0V504H201V0Z"/><path transform="translate(169.12 134.40) scale(0.12 -0.12)" d="M283 -232Q211 -232 157.0 -214.5Q103 -197 73.5 -161.5Q44 -126 44 -74Q44 -39 62.0 -8.0Q80 23 114.5 48.5Q149 74 201 92L252 26Q206 11 185.5 -11.5Q165 -34 165 -60Q165 -83 180.5 -99.0Q196 -115 222.5 -122.5Q249 -130 282 -130Q314 -130 337.5 -122.0Q361 -114 374.5 -98.5Q388 -83 388 -62Q388 -35 369.0 -18.0Q350 -1 293 3Q242 7 202.5 14.5Q163 22 133.0 32.5Q103 43 82.5 56.0Q62 69 49 82V105L156 220L253 189L127 65L165 131Q176 125 186.5 119.5Q197 114 213.0 109.5Q229 105 255.0 101.0Q281 97 321 94Q387 88 429.5 69.0Q472 50 492.0 18.5Q512 -13 512 -59Q512 -104 487.5 -143.5Q463 -183 412.0 -207.5Q361 -232 283 -232ZM283 149Q220 149 174.5 173.5Q129 198 104.5 239.5Q80 281 80 332Q80 383 104.5 424.5Q129 466 174.5 491.0Q220 516 283 516Q347 516 392.5 491.0Q438 466 462.0 424.5Q486 383 486 332Q486 281 462.0 239.5Q438 198 392.5 173.5Q347 149 283 149ZM283 252Q322 252 346.0 272.0Q370 292 370 331Q370 370 346.0 390.5Q322 411 283 411Q245 411 220.5 390.5Q196 370 196 331Q196 292 220.5 272.0Q245 252 283 252ZM367 408 345 504H552V424Z"/><path transform="translate(238.24 134.40) scale(0.12 -0.12)" d="M66 0V720H201V429Q226 469 267.5 492.5Q309 516 364 516Q427 516 470.0 489.5Q513 463 535.0 413.0Q557 363 557 289V0H423V277Q423 337 398.0 369.5Q373 402 319 402Q286 402 259.0 386.0Q232 370 216.5 339.5Q201 309 201 267V0Z"/><path transform="translate(310.00 134.40) scale(0.12 -0.12)" d="M293 0Q240 0 200.5 16.5Q161 33 139.0 71.5Q117 110 117 177V391H31V504H117L132 641H252V504H385V391H252V175Q252 141 267.0 128.0Q282 115 318 115H384V0Z"/></g><path d="M155.50 35.92 Q155.50 51.92 171.50 51.92 Q155.50 51.92 155.50 67.92 Q155.50 51.92 139.50 51.92 Q155.50 51.92 155.50 35.92 Z" fill="var(--logo-spark, #E8C45A)"/></svg>
+      </div>
+      <p data-i18n="footer_tagline">From Learner to Leader. World-class online education for Central Asia's next generation.</p>
+    </div>
+    <div class="footer-links">
+      <h4 data-i18n="footer_nav_title">Navigate</h4>
+      <ul>
+        <li><a href="#about" data-i18n="nav_about">About Us</a></li>
+        <li><a href="#mission" data-i18n="nav_mission">Mission</a></li>
+        <li><a href="#courses" data-i18n="nav_courses">Courses &amp; Pricing</a></li>
+        <li><a href="/enroll.html" data-i18n="nav_enroll">Get started</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
+        <li><a href="https://elightschool.com" target="_blank" rel="noopener" data-i18n="nav_login_footer">Student Login ↗</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4 data-i18n="footer_follow">Follow Us</h4>
+      <div class="footer-socials">
+        <a href="https://www.instagram.com/elight.us?igsh=bjB4aHA0Z25mODNm&utm_source=qr" class="social-icon" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@elight.us?_r=1&_t=ZP-97F4XeBrtfC" class="social-icon" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.77a4.85 4.85 0 01-1.01-.08z"/></svg>
+        </a>
+        <!-- WhatsApp -->
+        <a href="https://wa.me/message/NZQYXBHHW3YXI1" class="social-icon" target="_blank" rel="noopener" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p data-i18n="footer_copy">© 2026 Elight Online School. All rights reserved.</p>
+    <p><a href="https://elightschool.com" style="color:var(--body-text);text-decoration:none;" target="_blank" rel="noopener">elightschool.com</a></p>
+  </div>
+</footer>
+
+<script>
+// ─── TRANSLATIONS ────────────────────────────────────────────────
+const translations = {
+  en: {
+    nav_about: "About", nav_mission: "Mission", nav_courses: "Courses",
+    nav_enroll: "Get started", nav_contact: "Contact", nav_login: "Student Login", contact_label: "Contact Us", contact_title: "Let's get in touch.", contact_sub: "Have questions? We're one message away. Reach out on any platform.",
+    contact_wa_label: "WhatsApp", contact_tg_label: "Telegram", contact_ig_label: "Instagram", contact_tt_label: "TikTok",
+    nav_contact: "Contact", nav_login_footer: "Student Login ↗",
+    hero_h1_html: 'From Learner<br>to <span>Leader.</span>',
+    hero_sub: "World-class language education for the next generation of Central Asian leaders, available wherever you are.",
+    hero_cta_enroll: "Choose your course", hero_cta_courses: "See Courses",
+    about_label: "About Us", about_title: "Education that opens doors.",
+    about_p1: "We make world-class education accessible by offering courses in English, Russian, Turkish, Japanese, Korean, French, German, and Mathematics, as well as comprehensive standardized test preparation.",
+    about_p2: "Elight School was founded by a woman from Central Asia who believes quality education should be within reach for everyone, no matter where they live.",
+    stat1: "Languages & Subjects", stat2: "Online & Flexible", stat3: "Week Programs", stat4: "Community Access",
+    mv_label: "Our Purpose", mv_title: "What drives us.",
+    mission_tag: "Mission",
+    mission_text: "To equip youth across Central Asia with the English skills, academic confidence, and career readiness they need to compete and lead in a global world. We do this through modern, technology-powered education that meets students where they are.",
+    courses_label: "Our Programs", courses_title: "Find your course.",
+    c1_title: "Small Group", c1_sub: "English · 10 Weeks", c1_price_note: "Was $187.50 — save $12.50 on full course",
+    c2_title: "2 Person Group Lessons", c2_sub: "English · 10 Weeks", c2_price_note: "Was $249.99 — save $12.49 on full course",
+    c3_title: "Individual", c3_sub: "English · Fully Personalized", c3_price_note: "12 weeks for $449.99 (was $479.97) — save $29.98",
+    popular_badge: "Popular",
+    cf_small_group_speaking: "Small group speaking lessons 2×/week with instructor",
+    cf_paired_speaking: "Paired speaking lessons 2×/week with instructor",
+    cf_self_paced: "3–4 self-paced platform lessons per week (Speaking, Writing, Reading, Listening)",
+    cf_grammar: "In-depth grammar video lessons",
+    cf_review: "Individual lesson review by instructor",
+    cf_account: "Personal student account on our platform",
+    cf_access: "1 year platform access from course start",
+    cf_community: "Lifetime Elight Community membership",
+    cf_coordinator: "Student Care Coordinator support",
+    cf_cert: "Certificate upon completion",
+    cf_live: "3 live 1-on-1 lessons per week with instructor",
+    cf_flexible_start: "Flexible start date, begin any day",
+    cf_personalized: "Personalized curriculum based on your goals",
+    cf_reschedule: "Ability to reschedule or freeze with advance notice",
+    cf_flex_length: "Flexible course length",
+    enroll_btn: "Test your level free →", apply_btn: "Apply in 2 minutes →",
+    other_langs_title: "Other Languages & Subjects",
+    subj_math: "Math", subj_russian: "Russian", subj_turkish: "Turkish",
+    subj_japanese: "Japanese", subj_korean: "Korean", subj_french: "French", subj_german: "German",
+    lessons_12: "12 lessons", individual_format: "Individual format",
+    enroll_label: "Get Started", enroll_title: "Ready to begin?",
+    enroll_sub: "Fill in your details and we'll reach out within 24 hours to get you enrolled.",
+    footer_tagline: "From Learner to Leader. World-class online education for Central Asia's next generation.",
+    footer_nav_title: "Navigate", footer_follow: "Follow Us",
+    faq_title: "Common Questions",
+    faq_q1: "How do I sign up?", faq_a1: "Fill out the form and a member of our team will reach out to you within 24 hours. Do not forget to add a WhatsApp or Telegram phone number, or handle for your socials so we can contact you. Or message us on Instagram, TikTok, WhatsApp or Telegram at +1 (925) 834-0107.",
+    faq_q2: "I don't know my English language level. Can you help?", faq_a2: "Yes! We will send you a test to determine your English language level.",
+    faq_q3: "Do you accept payments from my country?", faq_a3: "Yes, we accept payments from everywhere. We accept cash payments in Ashgabat, Sberbank in Russia, Zelle in the USA, and PayPal and card payments from everywhere else. Message us and we will help you with the payment.",
+    faq_q4: "Can I choose my lesson times?", faq_a4: "For individual lessons, we will schedule lesson times based on your availability. For group lessons, we will do our best to find a time that works for the majority.",
+    faq_q5: "Can I meet the instructors?", faq_a5: "Please check our Instagram page (@elight.us) to learn about our instructors.",
+    footer_copy: "© 2026 Elight Online School. All rights reserved."
+  },
+
+  ru: {
+    nav_about: "О нас", nav_mission: "Миссия", nav_courses: "Курсы",
+    nav_enroll: "Начать", nav_login: "Вход для студентов", contact_label: "Связаться с нами", contact_title: "Напишите нам.", contact_sub: "Есть вопросы? Мы в одном сообщении от вас. Свяжитесь с нами на любой платформе.",
+    contact_wa_label: "WhatsApp", contact_tg_label: "Telegram", contact_ig_label: "Instagram", contact_tt_label: "TikTok",
+    nav_contact: "Контакты", nav_login_footer: "Вход для студентов ↗",
+    hero_h1_html: 'От ученика<br>к <span>лидеру.</span>',
+    hero_sub: "Образование мирового уровня для нового поколения лидеров Центральной Азии, доступное вам в любом месте.",
+    hero_cta_enroll: "Подберите свой курс", hero_cta_courses: "Смотреть курсы",
+    about_label: "О нас", about_title: "Образование, которое открывает двери.",
+    about_p1: "Мы делаем качественное образование доступным: предлагаем курсы английского, русского, турецкого, японского, корейского, французского, немецкого языков и математики, а также подготовку к стандартизированным тестам.",
+    about_p2: "Школа Elight основана женщиной из Центральной Азии, которая убеждена: качественное образование должно быть доступно каждому, независимо от места проживания.",
+    stat1: "Языков и предметов", stat2: "Онлайн и гибко", stat3: "Недельные программы", stat4: "Доступ к сообществу",
+    mv_label: "Наша цель", mv_title: "Что нас движет.",
+    mission_tag: "Миссия",
+    mission_text: "Вооружить молодёжь Центральной Азии знанием английского языка, академической уверенностью и готовностью к карьере с помощью современного технологичного образования, доступного в любом месте.",
+    courses_label: "Наши программы", courses_title: "Выберите свой курс.",
+    c1_title: "Мини-группа", c1_sub: "Английский · 10 недель", c1_price_note: "Было $187.50 — экономия $12.50 при оплате за 10 недель",
+    c2_title: "Групповые уроки (2 человека)", c2_sub: "Английский · 10 недель", c2_price_note: "Было $249.99 — экономия $12.49 при оплате за 10 недель",
+    c3_title: "Индивидуально", c3_sub: "Английский · Полностью персональный", c3_price_note: "12 недель за $449.99 (вместо $479.97) — экономия $29.98",
+    popular_badge: "Популярно",
+    cf_small_group_speaking: "Разговорные уроки в мини-группе 2 раза/нед. с преподавателем",
+    cf_paired_speaking: "Парные разговорные уроки 2 раза/нед. с преподавателем",
+    cf_self_paced: "3–4 самостоятельных урока в неделю на платформе (Говорение, Письмо, Чтение, Аудирование)",
+    cf_grammar: "Углублённые видеоуроки по грамматике",
+    cf_review: "Индивидуальная проверка заданий преподавателем",
+    cf_account: "Личный кабинет на нашей платформе",
+    cf_access: "Доступ к платформе 1 год с начала курса",
+    cf_community: "Пожизненное членство в сообществе Elight",
+    cf_coordinator: "Поддержка координатора по работе со студентами",
+    cf_cert: "Сертификат по окончании курса",
+    cf_live: "3 живых индивидуальных урока в неделю с преподавателем",
+    cf_flexible_start: "Гибкая дата начала: начните в любой день",
+    cf_personalized: "Персональная программа под ваши цели",
+    cf_reschedule: "Возможность переноса или заморозки уроков",
+    cf_flex_length: "Гибкая длительность курса",
+    enroll_btn: "Узнайте свой уровень бесплатно →", apply_btn: "Заявка за 2 минуты →",
+    other_langs_title: "Другие языки и предметы",
+    subj_math: "Математика", subj_russian: "Русский", subj_turkish: "Турецкий",
+    subj_japanese: "Японский", subj_korean: "Корейский", subj_french: "Французский", subj_german: "Немецкий",
+    lessons_12: "12 уроков", individual_format: "Индивидуальный формат",
+    enroll_label: "Начать", enroll_title: "Готовы начать?",
+    enroll_sub: "Заполните форму, и мы свяжемся с вами в течение 24 часов.",
+    footer_tagline: "От ученика к лидеру. Образование мирового уровня для нового поколения Центральной Азии.",
+    footer_nav_title: "Навигация", footer_follow: "Мы в соцсетях",
+    faq_title: "Частые вопросы",
+    faq_q1: "Как записаться?", faq_a1: "Заполните форму, и наш сотрудник свяжется с вами в течение 24 часов. Не забудьте указать номер WhatsApp или Telegram, или аккаунт в соцсетях, чтобы мы могли с вами связаться. Также можно написать нам в Instagram, TikTok, WhatsApp или Telegram по номеру +1 (925) 834-0107.",
+    faq_q2: "Я не знаю свой уровень английского. Можете помочь?", faq_a2: "Да! Мы пришлём вам тест для определения уровня английского языка.",
+    faq_q3: "Принимаете ли вы оплату из моей страны?", faq_a3: "Да, мы принимаем оплату отовсюду. В Ашхабаде принимаем наличные, в России Сбербанк, в США Zelle, а также PayPal и оплату картой из любой точки мира. Напишите нам, и мы поможем с оплатой.",
+    faq_q4: "Могу ли я выбрать время занятий?", faq_a4: "Для индивидуальных занятий мы подберём время исходя из вашей занятости. Для групповых занятий постараемся найти время, которое подойдёт большинству.",
+    faq_q5: "Можно ли познакомиться с преподавателями?", faq_a5: "Загляните в наш Instagram (@elight.us), чтобы узнать больше о наших преподавателях.",
+    footer_copy: "© 2026 Elight Online School. Все права защищены."
+  },
+
+  tk: {
+    nav_about: "Biz hakda", nav_mission: "Missiýa", nav_courses: "Kurslar",
+    nav_enroll: "Başlaň", nav_login: "Talyp girmesi", contact_label: "Habarlaşyň", contact_title: "Biz bilen habarlaşyň.", contact_sub: "Soraglaryňyz barmy? Biz bir habar uzaklykda. Islendik platformada biziň bilen habarlaşyň.",
+    contact_wa_label: "WhatsApp", contact_tg_label: "Telegram", contact_ig_label: "Instagram", contact_tt_label: "TikTok",
+    nav_contact: "Habarlaşmak", nav_login_footer: "Talyp girmesi ↗",
+    hero_h1_html: 'Okuwçydan<br><span>Lidere.</span>',
+    hero_sub: "Merkezi Aziýanyň täze nesliniň liderleri üçin dünýä derejesindäki dil bilimi, islendik ýerden elýeterli.",
+    hero_cta_enroll: "Kursyňyzy tapyň", hero_cta_courses: "Kurslara bak",
+    about_label: "Biz hakda", about_title: "Gapylary açýan bilim.",
+    about_p1: "Biz dünýä derejesindäki bilimi elýeterli edýäris: iňlis, rus, türk, ýapon, koreý, fransuz, nemes dillerinde we matematika boýunça kurslar, şeýle hem standartlaşdyrylan synaglara taýýarlyk hödürleýäris.",
+    about_p2: "Elight mekdebi Merkezi Aziýadan bir aýal tarapyndan esaslandyryldy. Ol hiliň biliminiň ýaşaýan ýerine garamazdan hemmelere elýeterli bolmalydygyna ynanýar.",
+    stat1: "Dil we dersleri", stat2: "Onlaýn we çeýe", stat3: "Hepdelik maksatnamalar", stat4: "Jemgyýete giriş",
+    mv_label: "Maksadymyz", mv_title: "Bizi näme herekete getirýär.",
+    mission_tag: "Missiýa",
+    mission_text: "Merkezi Aziýanyň ýaşlaryny dünýä derejesinde bäsleşmäge we ýolbaşçylyk etmäge mümkinçilik berýän iňlis dili başarnyklary, akademiki ynamdarlyk we karýera taýýarlygy bilen enjamlandyrmak. Muny häzirki zaman, tehnologiýa esasly bilim arkaly amala aşyrýarys.",
+    courses_label: "Maksatnamalarymyz", courses_title: "Kursuňyzy saýlaň.",
+    c1_title: "Kiçi topar", c1_sub: "Iňlis dili · 10 Hepde", c1_price_note: "$187.50 bolupdy — 10 hepdede $12.50 tygşytla",
+    c2_title: "2 Adamlyk Topar Sapagy", c2_sub: "Iňlis dili · 10 Hepde", c2_price_note: "$249.99 bolupdy — 10 hepdede $12.49 tygşytla",
+    c3_title: "Şahsy sapaklary", c3_sub: "Iňlis dili · Doly şahsylaşdyrylan", c3_price_note: "12 hepde üçin $449.99 ($479.97 deregine) — $29.98 tygşytla",
+    popular_badge: "Meşhur",
+    cf_small_group_speaking: "Kiçi toparda hepdede 2 gezek mugallym bilen gepleşik sapaklar",
+    cf_paired_speaking: "Jübüt gepleşik sapaklar hepdede 2 gezek mugallym bilen",
+    cf_self_paced: "Hepdede 3–4 özbaşdak platforma sapaklary (Gepleşik, Ýazuw, Okuw, Diňlemek)",
+    cf_grammar: "Çuňlaşdyrylan grammatika wideo sapaklar",
+    cf_review: "Mugallym tarapyndan sapaklar üçin şahsy syn",
+    cf_account: "Platforma sahypasynda şahsy talyp hasaby",
+    cf_access: "Kursyň başyndan 1 ýyl platforma girmek",
+    cf_community: "Ömürlik Elight jemgyýet agzalygy",
+    cf_coordinator: "Talyp hyzmat utgaşdyryjysynyň goldawy",
+    cf_cert: "Tamamlanandan soň şahadatnama",
+    cf_live: "Mugallym bilen hepdede 3 gezek göni 1-e-1 sapak",
+    cf_flexible_start: "Çeýe başlangyç senesi, islendik günde başlaň",
+    cf_personalized: "Maksatlaryna görä şahsylaşdyrylan okuw meýilnamasy",
+    cf_reschedule: "Öňünden habar berlende sapaklary täzeden meýilleşdirmek ýa-da doňdurmak",
+    cf_flex_length: "Çeýe kurs uzynlygy",
+    enroll_btn: "Derejäňizi mugt biliň →", apply_btn: "2 minutda arza →",
+    other_langs_title: "Beýleki diller we dersler",
+    subj_math: "Matematika", subj_russian: "Rus dili", subj_turkish: "Türk dili",
+    subj_japanese: "Ýapon dili", subj_korean: "Koreý dili", subj_french: "Fransuz dili", subj_german: "Nemes dili",
+    lessons_12: "12 sapak", individual_format: "Şahsy format",
+    enroll_label: "Başlaň", enroll_title: "Başlamaga taýynmy?",
+    enroll_sub: "Maglumatlaryňyzy dolduryň, 24 sagadyň içinde siziň bilen habarlaşarys.",
+    footer_tagline: "Okuwçydan Lidere. Merkezi Aziýanyň täze nesli üçin dünýä derejesindäki onlaýn bilim.",
+    footer_nav_title: "Nawigasiýa", footer_follow: "Bizi yzarlaň",
+    faq_title: "Sorag-jogap",
+    faq_q1: "Nädip ýazylmaly?", faq_a1: "Formany dolduryň, toparymyzyň bir agzasy 24 sagadyň içinde siziň bilen habarlaşar. WhatsApp ýa-da Telegram belgisini ýa-da sosial media hasabyňyzy goşmagy unutmaň. Şeýle hem Instagram, TikTok, WhatsApp ýa-da Telegram arkaly +1 (925) 834-0107 belgisine ýazyp bilersiňiz.",
+    faq_q2: "Iňlis dilim haýsy derejededigi bilemok. Kömek edip bilersiňizmi?", faq_a2: "Hawa! Iňlis dil derejesini kesgitlemek üçin size synag ibereris.",
+    faq_q3: "Meniň ýurdumdan töleg kabul edýärsiňizmi?", faq_a3: "Hawa, dünýäniň islendik ýerinden töleg kabul edýäris. Aşgabatda nagt, Russiýada Sberbank, ABŞ-da Zelle, beýleki ýerlerden PayPal we kart tölegleri kabul edilýär. Bize ýazyň, töleg meselesinde kömek ederis.",
+    faq_q4: "Sapaklaryň wagtyny saýlap bilerinmi?", faq_a4: "Şahsy sapaklar üçin wagty siziň meýilnamaňyza görä belleýäris. Topar sapaklar üçin köpüsine laýyk gelýän wagty tapmaga çalışarys.",
+    faq_q5: "Mugallymlar bilen tanyşyp bolarmy?", faq_a5: "Mugallymlarymyz hakda has giňişleýin maglumat almak üçin Instagram sahypamyza (@elight.us) serediň.",
+    footer_copy: "© 2026 Elight Online School. Ähli hukuklar goralan."
+  },
+
+  tr: {
+    nav_about: "Hakkımızda", nav_mission: "Misyon", nav_courses: "Kurslar",
+    nav_enroll: "Başlayın", nav_login: "Öğrenci Girişi", contact_label: "Bize Ulaşın", contact_title: "İletişime geçelim.", contact_sub: "Sorularınız mı var? Bir mesaj uzağınızdayız. Herhangi bir platformdan bize ulaşın.",
+    contact_wa_label: "WhatsApp", contact_tg_label: "Telegram", contact_ig_label: "Instagram", contact_tt_label: "TikTok",
+    nav_contact: "İletişim", nav_login_footer: "Öğrenci Girişi ↗",
+    hero_h1_html: 'Öğrenciden<br><span>Lidere.</span>',
+    hero_sub: "Orta Asya'nın yeni nesil liderleri için dünya standartlarında dil eğitimi, nerede olursanız olun erişilebilir.",
+    hero_cta_enroll: "Kursunuzu bulun", hero_cta_courses: "Kurslara Bak",
+    about_label: "Hakkımızda", about_title: "Kapılar açan eğitim.",
+    about_p1: "Dünya standartlarında eğitimi herkesin erişimine açıyoruz: İngilizce, Rusça, Türkçe, Japonca, Korece, Fransızca, Almanca ve Matematik kursları ile kapsamlı sınav hazırlığı sunuyoruz.",
+    about_p2: "Elight Okulu, Orta Asya'dan bir kadın tarafından kurulmuştur. Kaliteli eğitimin nerede yaşandığından bağımsız olarak herkese ulaşması gerektiğine inanıyor.",
+    stat1: "Dil ve Konu", stat2: "Çevrimiçi ve Esnek", stat3: "Haftalık Programlar", stat4: "Topluluk Erişimi",
+    mv_label: "Amacımız", mv_title: "Bizi harekete geçiren nedir.",
+    mission_tag: "Misyon",
+    mission_text: "Orta Asya genelindeki gençleri, küresel dünyada rekabet edip liderlik edebilmeleri için gereken İngilizce becerileri, akademik özgüven ve kariyer hazırlığıyla donatmak. Bunu modern, teknoloji destekli eğitim aracılığıyla gerçekleştiriyoruz.",
+    courses_label: "Programlarımız", courses_title: "Kursunuzu bulun.",
+    c1_title: "Küçük Grup", c1_sub: "İngilizce · 10 Hafta", c1_price_note: "Eski fiyat $187.50 — 10 haftalık pakette $12.50 kazanın",
+    c2_title: "2 Kişilik Grup Dersleri", c2_sub: "İngilizce · 10 Hafta", c2_price_note: "Eski fiyat $249.99 — 10 haftalık pakette $12.49 kazanın",
+    c3_title: "Bireysel", c3_sub: "İngilizce · Tamamen Kişiselleştirilmiş", c3_price_note: "12 hafta için $449.99 ($479.97 yerine) — $29.98 tasarruf",
+    popular_badge: "Popüler",
+    cf_small_group_speaking: "Küçük grupta haftada 2 kez eğitmenle konuşma dersleri",
+    cf_paired_speaking: "Çiftli konuşma dersleri haftada 2 kez eğitmenle",
+    cf_self_paced: "Haftada 3–4 kendi hızında platform dersi (Konuşma, Yazma, Okuma, Dinleme)",
+    cf_grammar: "Derinlemesine dilbilgisi video dersleri",
+    cf_review: "Eğitmen tarafından bireysel ders değerlendirmesi",
+    cf_account: "Platformda kişisel öğrenci hesabı",
+    cf_access: "Kurs başlangıcından itibaren 1 yıl platform erişimi",
+    cf_community: "Ömür boyu Elight Topluluğu üyeliği",
+    cf_coordinator: "Öğrenci Bakım Koordinatörü desteği",
+    cf_cert: "Tamamlandığında sertifika",
+    cf_live: "Eğitmenle haftada 3 canlı birebir ders",
+    cf_flexible_start: "Esnek başlangıç tarihi, istediğiniz gün başlayın",
+    cf_personalized: "Hedeflerinize göre kişiselleştirilmiş müfredat",
+    cf_reschedule: "Önceden haber vererek dersleri yeniden planlama veya dondurma",
+    cf_flex_length: "Esnek kurs süresi",
+    enroll_btn: "Seviyenizi ücretsiz öğrenin →", apply_btn: "2 dakikada başvurun →",
+    other_langs_title: "Diğer Diller ve Dersler",
+    subj_math: "Matematik", subj_russian: "Rusça", subj_turkish: "Türkçe",
+    subj_japanese: "Japonca", subj_korean: "Korece", subj_french: "Fransızca", subj_german: "Almanca",
+    lessons_12: "12 ders", individual_format: "Bireysel format",
+    enroll_label: "Başlayın", enroll_title: "Başlamaya hazır mısınız?",
+    enroll_sub: "Bilgilerinizi doldurun, 24 saat içinde kaydınızı tamamlamak için size ulaşacağız.",
+    footer_tagline: "Öğrenciden Lidere. Orta Asya'nın yeni nesli için dünya standartlarında çevrimiçi eğitim.",
+    footer_nav_title: "Gezin", footer_follow: "Bizi Takip Edin",
+    faq_title: "Sık Sorulan Sorular",
+    faq_q1: "Nasıl kayıt olabilirim?", faq_a1: "Formu doldurun, ekibimizden biri 24 saat içinde sizinle iletişime geçecek. WhatsApp veya Telegram numaranızı ya da sosyal medya hesabınızı eklemeyi unutmayın. Bize Instagram, TikTok, WhatsApp veya Telegram üzerinden de yazabilirsiniz: +1 (925) 834-0107.",
+    faq_q2: "İngilizce seviyemi bilmiyorum. Yardımcı olabilir misiniz?", faq_a2: "Evet! İngilizce seviyenizi belirlemek için size bir test göndereceğiz.",
+    faq_q3: "Ülkemden ödeme kabul ediyor musunuz?", faq_a3: "Evet, her yerden ödeme kabul ediyoruz. Aşkabat'ta nakit, Rusya'da Sberbank, ABD'de Zelle, diğer yerlerden PayPal ve kart ile ödeme yapılabilir. Yazın, ödeme konusunda yardımcı olalım.",
+    faq_q4: "Ders saatlerini seçebilir miyim?", faq_a4: "Bireysel derslerde saatleri sizin müsaitliğinize göre ayarlıyoruz. Grup dersleri için çoğunluğa uygun bir saat bulmaya çalışıyoruz.",
+    faq_q5: "Eğitmenlerle tanışabilir miyim?", faq_a5: "Eğitmenlerimiz hakkında bilgi almak için Instagram sayfamıza (@elight.us) göz atabilirsiniz.",
+    footer_copy: "© 2026 Elight Online School. Tüm hakları saklıdır."
+  }
+};
+
+const langMeta = {
+  en: { flag: '🇺🇸', label: 'EN' },
+  ru: { flag: '🇷🇺', label: 'RU' },
+  tk: { flag: '🇹🇲', label: 'TK' },
+  tr: { flag: '🇹🇷', label: 'TR' }
+};
+
+let currentLang = 'en';
+
+function applyTranslations(lang) {
+  const t = translations[lang];
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (t[key] !== undefined) {
+      if (key === 'hero_h1_html') {
+        el.innerHTML = t[key];
+      } else {
+        el.textContent = t[key];
+      }
+    }
+  });
+  document.documentElement.lang = lang;
+
+  // Update FAQ section
+  const faqItems = document.querySelectorAll('.faq-item');
+  const faqKeys = ['q1','q2','q3','q4','q5'];
+  faqItems.forEach((item, i) => {
+    const key = faqKeys[i];
+    if (!key) return;
+    const qEl = item.querySelector('summary span:first-child');
+    const aEl = item.querySelector('p');
+    if (qEl && t['faq_q' + (i+1)]) qEl.textContent = t['faq_q' + (i+1)];
+    if (aEl && t['faq_a' + (i+1)]) aEl.textContent = t['faq_a' + (i+1)];
+  });
+
+  // Update FAQ title h2
+  const faqTitle = document.querySelector('#faq h2');
+  if (faqTitle && t.faq_title) faqTitle.textContent = t.faq_title;
+}
+
+function setTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  try { localStorage.setItem('elight-theme', theme); } catch (e) {}
+}
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') === 'light' ? 'light' : 'dark';
+  setTheme(current === 'light' ? 'dark' : 'light');
+}
+
+function setLang(lang) {
+  currentLang = lang;
+  applyTranslations(lang);
+
+  // Update desktop button
+  document.getElementById('currentLangFlag').textContent = langMeta[lang].flag;
+  document.getElementById('currentLangLabel').textContent = langMeta[lang].label;
+
+  // Update desktop dropdown active state
+  document.querySelectorAll('.lang-option').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('onclick') === `setLang('${lang}')`);
+  });
+
+  // Update mobile lang buttons
+  if (typeof updateMobileLangButtons === 'function') {
+    updateMobileLangButtons(lang);
+  }
+
+  closeLangMenu();
+}
+
+function toggleLangMenu() {
+  const btn = document.getElementById('langBtn');
+  const dropdown = document.getElementById('langDropdown');
+  btn.classList.toggle('open');
+  dropdown.classList.toggle('open');
+}
+
+function closeLangMenu() {
+  document.getElementById('langBtn').classList.remove('open');
+  document.getElementById('langDropdown').classList.remove('open');
+}
+
+// Close dropdown when clicking outside
+document.addEventListener('click', e => {
+  if (!e.target.closest('.lang-switcher')) closeLangMenu();
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+  // ── MOBILE MENU ───────────────────────────────────────────────
+  function openMobileMenu() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('mobileMenu').addEventListener('click', function(e) {
+    if (e.target === this) closeMobileMenu();
+  });
+
+  // Update mobile lang buttons whenever language changes
+  function updateMobileLangButtons(lang) {
+    document.querySelectorAll('.mobile-lang-btn').forEach(btn => btn.classList.remove('active'));
+    const mBtn = document.getElementById('mlang-' + lang);
+    if (mBtn) mBtn.classList.add('active');
+  }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+# Certificate verification: branded URL -> hosted credential record (Certifier/Credsverse)
+/verify/:id  https://credsverse.com/credentials/:id  302
+/verify      /verify.html                            200

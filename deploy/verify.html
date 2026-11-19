@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" translate="no">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google" content="notranslate">
+<title>Verify a Certificate | Elight</title>
+<meta name="description" content="Check that an Elight certificate is genuine. Enter the certificate ID printed on the document.">
+<link rel="icon" href="logo/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="logo/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="apple-touch-icon" href="logo/apple-touch-icon.png">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1C3A5E;
+    --navy-deep: #16304E;
+    --gold: #E8C45A;
+    --blue-light: #A8D4F0;
+    --muted: #8FA5BC;
+    --ivory: #FBF8F1;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  body {
+    min-height: 100vh;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 28px;
+    padding: 40px 20px;
+    background: linear-gradient(155deg, var(--navy) 0%, #25496F 58%, #1E4268 100%);
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    color: var(--ivory);
+    text-align: center;
+  }
+  .wordmark { width: 168px; height: auto; display: block; margin: 0 auto; }
+  h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 600; font-size: clamp(26px, 5vw, 34px);
+    letter-spacing: 0.02em;
+  }
+  .card {
+    width: 100%; max-width: 520px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(232, 196, 90, 0.35);
+    border-radius: 12px;
+    padding: 28px 26px;
+    display: flex; flex-direction: column; gap: 16px;
+  }
+  .card p { font-size: 15px; line-height: 1.6; color: var(--blue-light); }
+  label {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted); text-align: left;
+  }
+  input {
+    width: 100%;
+    font: 500 15px/1.4 'DM Sans', monospace, sans-serif;
+    color: var(--navy);
+    background: var(--ivory);
+    border: 1px solid transparent; border-radius: 8px;
+    padding: 13px 14px;
+  }
+  input:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+  button {
+    font: 700 16px/1 'DM Sans', sans-serif;
+    color: var(--navy);
+    background: var(--gold);
+    border: none; border-radius: 8px;
+    padding: 15px 18px;
+    cursor: pointer;
+  }
+  button:hover { filter: brightness(1.06); }
+  button:focus-visible { outline: 2px solid var(--ivory); outline-offset: 2px; }
+  .error { display: none; font-size: 14px; color: #F3B7A8; text-align: left; }
+  .hint { font-size: 13.5px; color: var(--muted); line-height: 1.6; }
+  a { color: var(--blue-light); }
+  .home { font-size: 14px; color: var(--muted); text-decoration: none; }
+  .home:hover { color: var(--blue-light); }
+</style>
+</head>
+<body>
+  <header>
+    <svg class="wordmark" viewBox="4 -101 334 132" xmlns="http://www.w3.org/2000/svg" aria-label="Elight">
+      <defs>
+        <linearGradient id="wg" gradientUnits="userSpaceOnUse" x1="4" y1="-95" x2="338" y2="31">
+          <stop offset="0%" stop-color="#EFCF77"/>
+          <stop offset="55%" stop-color="#E8C45A"/>
+          <stop offset="100%" stop-color="#C89B33"/>
+        </linearGradient>
+      </defs>
+      <g fill="url(#wg)">
+        <path transform="translate(0.00 0) scale(0.12 -0.12)" d="M308 -12Q232 -12 173.5 20.5Q115 53 82.5 111.5Q50 170 50 247Q50 326 82.5 386.5Q115 447 173.0 481.5Q231 516 308 516Q383 516 439.0 483.0Q495 450 526.0 394.0Q557 338 557 267Q557 257 557.0 244.5Q557 232 555 219H146V301H421Q418 350 386.5 378.0Q355 406 308 406Q274 406 245.0 390.5Q216 375 199.5 343.0Q183 311 183 262V233Q183 192 198.5 161.5Q214 131 242.0 114.5Q270 98 307 98Q344 98 368.5 114.0Q393 130 405 155H543Q529 108 496.0 70.0Q463 32 415.0 10.0Q367 -12 308 -12Z"/>
+        <path transform="translate(69.84 0) scale(0.12 -0.12)" d="M66 0V720H201V0Z"/>
+        <path transform="translate(99.48 0) scale(0.12 -0.12)" d="M66 0V504H201V0Z"/>
+        <path transform="translate(129.12 0) scale(0.12 -0.12)" d="M283 -232Q211 -232 157.0 -214.5Q103 -197 73.5 -161.5Q44 -126 44 -74Q44 -39 62.0 -8.0Q80 23 114.5 48.5Q149 74 201 92L252 26Q206 11 185.5 -11.5Q165 -34 165 -60Q165 -83 180.5 -99.0Q196 -115 222.5 -122.5Q249 -130 282 -130Q314 -130 337.5 -122.0Q361 -114 374.5 -98.5Q388 -83 388 -62Q388 -35 369.0 -18.0Q350 -1 293 3Q242 7 202.5 14.5Q163 22 133.0 32.5Q103 43 82.5 56.0Q62 69 49 82V105L156 220L253 189L127 65L165 131Q176 125 186.5 119.5Q197 114 213.0 109.5Q229 105 255.0 101.0Q281 97 321 94Q387 88 429.5 69.0Q472 50 492.0 18.5Q512 -13 512 -59Q512 -104 487.5 -143.5Q463 -183 412.0 -207.5Q361 -232 283 -232ZM283 149Q220 149 174.5 173.5Q129 198 104.5 239.5Q80 281 80 332Q80 383 104.5 424.5Q129 466 174.5 491.0Q220 516 283 516Q347 516 392.5 491.0Q438 466 462.0 424.5Q486 383 486 332Q486 281 462.0 239.5Q438 198 392.5 173.5Q347 149 283 149ZM283 252Q322 252 346.0 272.0Q370 292 370 331Q370 370 346.0 390.5Q322 411 283 411Q245 411 220.5 390.5Q196 370 196 331Q196 292 220.5 272.0Q245 252 283 252ZM367 408 345 504H552V424Z"/>
+        <path transform="translate(198.24 0) scale(0.12 -0.12)" d="M66 0V720H201V429Q226 469 267.5 492.5Q309 516 364 516Q427 516 470.0 489.5Q513 463 535.0 413.0Q557 363 557 289V0H423V277Q423 337 398.0 369.5Q373 402 319 402Q286 402 259.0 386.0Q232 370 216.5 339.5Q201 309 201 267V0Z"/>
+        <path transform="translate(270.00 0) scale(0.12 -0.12)" d="M293 0Q240 0 200.5 16.5Q161 33 139.0 71.5Q117 110 117 177V391H31V504H117L132 641H252V504H385V391H252V175Q252 141 267.0 128.0Q282 115 318 115H384V0Z"/>
+      </g>
+      <path d="M115.50 -98.48 Q115.50 -82.48 131.50 -82.48 Q115.50 -82.48 115.50 -66.48 Q115.50 -82.48 99.50 -82.48 Q115.50 -82.48 115.50 -98.48 Z" fill="#FFFFFF"/>
+    </svg>
+  </header>
+
+  <h1>Verify a Certificate</h1>
+
+  <form class="card" id="verifyForm">
+    <p>Every Elight certificate carries a unique ID at the bottom of the page.
+       Enter it here and we will take you to the official verification record.</p>
+    <label for="certId">Certificate ID</label>
+    <input id="certId" name="certId" placeholder="e.g. 77bba9db-5201-4a58-b1a9-91b207e199d6"
+           autocomplete="off" spellcheck="false" required>
+    <span class="error" id="certError">That does not look like a certificate ID. Please check it and try again.</span>
+    <button type="submit">Verify certificate</button>
+    <p class="hint">The ID is the long code printed at the bottom of the certificate, next to
+       "Certificate ID". Verification records are hosted by
+       <a href="https://certifier.io/" rel="noopener">Certifier</a>, our credential platform.</p>
+  </form>
+
+  <a class="home" href="/">&larr; Back to elight.us.com</a>
+
+<script>
+  document.getElementById('verifyForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var raw = document.getElementById('certId').value;
+    var err = document.getElementById('certError');
+    var m = raw.match(/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/i);
+    if (!m) { err.style.display = 'block'; return; }
+    err.style.display = 'none';
+    window.location.href = 'https://credsverse.com/credentials/' + m[0].toLowerCase();
+  });
+</script>
+</body>
+</html>
